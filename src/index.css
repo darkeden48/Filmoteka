@@ -102,6 +102,53 @@ header .column-1, header .column-3 {
   cursor: pointer;
 }
 
-footer {
-  background-color: rgba(0, 0, 0, 0.25);
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F7F7F7;
+  color: #545454;
+  width: 100%;
+  height: 77px;
+}
+@media (max-width: 768px) {
+  .footer {
+    height: 100px;
+  }
+}
+.footer .footer-content {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .footer .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.footer .footer-content .content-one p {
+  margin: 0;
+}
+.footer .footer-content .content-two {
+  display: flex;
+  align-items: baseline;
+}
+.footer .footer-content .content-two p {
+  margin: 0;
+}
+.footer .footer-content .content-two .icon-heart {
+  width: 14px;
+  height: 12.88px;
+  fill: #FF6B08;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.footer .footer-content .content-two .team-link {
+  text-decoration: underline;
+  color: inherit;
 }/*# sourceMappingURL=index.css.map */
