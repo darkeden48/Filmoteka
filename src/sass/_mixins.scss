@@ -1,0 +1,26 @@
+@import "./breakpoints";
+
+// Custom devices
+@mixin rwd($screen) {
+    @media (max-width: $screen + 'px') {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (max-width: #{$laptop}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media (max-width: #{$phone}) {
+        @content;
+    }
+}

@@ -1,34 +1,38 @@
-<header>
-  <div class="header__column column-1">
-    <div class="header__logo">
-      <!-- <svg class="logo">
-        <use href="./images/symbol-defs.svg#icon-logo"></use>
-      </svg> -->
-    </div>
-    <div class="logo_name">
-      <h1>Filmoteka</h1>
-    </div>
-  </div>
-  <div class="header__column column-2">
-    <div class="search_container">
-      <input type="text" placeholder="Поиск фильмов">
-      <div class="search_icon">
-        <!-- <svg class="icon">
-          <use href="./images/symbol-defs.svg#icon-search"></use>
-        </svg> -->
+<header class="home">
+  <div class="container">
+    <nav>
+      <div class="header__column column-1">
+        <div class="header__logo">
+          <div class="logo_container">
+            <img src="images/logo.png" alt="Filmoteka">
+          </div>
+          <div class="logo_name">
+            <h1>Filmoteka</h1>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="header__column column-3">
-    <div class="list_container">
-      <a class="list">
-        Home
-      </a>
-    </div>
-    <div class="list_container">
-      <a class="list">
-        My Library
-      </a>
+      <div class="header__column column-2">
+        <div class="list_container">
+          <a class="list">
+            Home
+          </a>
+        </div>
+        <div class="list_container">
+          <a class="list">
+            My Library
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="search">
+      <div class="search_container">
+        <input type="text" placeholder="Поиск фильмов">
+        <div class="search_icon">
+          <svg class="icon" width="8px" height="8px">
+            <use fill="white" href="./images/symbol-defs.svg#icon-search"></use>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </header>
