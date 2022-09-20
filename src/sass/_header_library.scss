@@ -17,7 +17,16 @@
     width: 100%;
     height: 100%;
     opacity: 0.56;
-    background-image: url('./images/header.jpg');
+    background-image: url('./images/header-2x.jpg');
+    @include laptop {
+        background-image: url('./images/header.jpg');
+    }
+    @include tablet {
+        background-image: url('./images/header-tablet.jpg');
+    }
+    @include phone {
+        background-image: url('./images/header-mobile.jpg');
+    }
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
