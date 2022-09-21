@@ -33,4 +33,4 @@ const page = 1;
     catch(error){console.log('ERROR -->', error)}
   };
 
-  export default {fetchTrendFilms, BASE_URL, API_KEY, id}
+  export default {fetchTrendFilms,fetchSearchFilms,fetchFilmbyId BASE_URL, API_KEY, id}
