@@ -1,5 +1,3 @@
-
-// пример получения данных
-import ApiServiceTmdb from "./apiService/ApiService";
-
-ApiServiceTmdb.fetchTrendFilms();
+import './js/loadTrend'
+import './js/loadSearch'
+import './js/loadModalFilm'
