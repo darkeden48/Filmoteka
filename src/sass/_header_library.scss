@@ -7,6 +7,7 @@
   top: 0;
   z-index: 1;
   font-family: 'Roboto', sans-serif;
+
   &:before {
     content: ' ';
     z-index: -1;
@@ -18,39 +19,49 @@
     height: 100%;
     opacity: 0.56;
     background-image: url('./images/header-2x.jpg');
+
     @include laptop {
-        background-image: url('./images/header.jpg');
+      background-image: url('./images/header.jpg');
     }
+
     @include tablet {
-        background-image: url('./images/header-tablet.jpg');
+      background-image: url('./images/header-tablet.jpg');
     }
+
     @include phone {
-        background-image: url('./images/header-mobile.jpg');
+      background-image: url('./images/header-mobile.jpg');
     }
+
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
   }
+
   nav {
     width: 100%;
     height: 50%;
     display: flex;
     justify-content: space-between;
     padding-top: 41px;
+
     @include phone {
       padding-top: 0;
     }
   }
+
   .header__column {
     display: flex;
     align-items: center;
     justify-content: center;
+
     @include tablet {
       width: 50%;
     }
+
     .list_container {
       display: flex;
       width: 50%;
+
       .list {
         font-style: normal;
         font-weight: 500;
@@ -59,21 +70,27 @@
       }
     }
   }
+
   .column-1 {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+
     @include phone {
       width: 40%;
     }
+
     @include tablet {
       width: 40%;
     }
+
     @include laptop {
       width: 50%;
     }
+
     .header__logo {
       display: flex;
+
       .logo_container {
         width: 100%;
         margin-right: 10px;
@@ -81,15 +98,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
         @include phone {
           padding-top: 38px;
         }
       }
+
       .logo_name {
         width: 80%;
+
         @include phone {
           display: none;
         }
+
         h1 {
           font-style: normal;
           font-weight: 500;
@@ -100,42 +121,55 @@
       }
     }
   }
+
   .column-2 {
     align-items: center;
     width: 30%;
+
     @include laptop {
       width: 30%;
     }
+
     @include tablet {
       width: 30%;
       justify-content: flex-end
     }
+
     @include phone {
       width: 60%;
     }
+
     .list_container {
       width: 40%;
+
       @include laptop {
         width: 50%;
       }
+
       @include tablet {
         width: 50%;
       }
+
       @include phone {
         width: 100%;
       }
+
       display: flex;
       justify-content: center;
+
       .list {
         @include laptop {
           font-size: 16px;
         }
+
         @include tablet {
           font-size: 12px;
         }
+
         @include phone {
           font-size: 12px;
         }
+
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
@@ -150,35 +184,40 @@
         background-position: 0% 100%;
         transition: ease all 0.25s;
         background-size: 0% 3px;
+
         &:hover {
           background-size: 100% 3px;
         }
       }
     }
   }
+
   .buttons {
     width: 287px;
     margin: 0 auto;
+
     .buttons_container {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        button {
-            width: 136px;
-            height: 44px;
-            border: 1px solid $btn-pagination;
-            background-color: transparent;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: $animation;
-            &:hover {
-                background-color: $btn-bg-accent;
-                border: none;
-                filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
-            }
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        width: 136px;
+        height: 44px;
+        border: 1px solid $btn-pagination;
+        background-color: transparent;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: $animation;
+
+        &:hover {
+          background-color: $btn-bg-accent;
+          border: none;
+          filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
         }
+      }
     }
   }
 }

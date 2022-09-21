@@ -1,46 +1,56 @@
 .footer {
-   @media (max-width: 768px){
-   height: 100px;
+   @media (max-width: 768px) {
+      height: 100px;
    }
+
    display: flex;
    justify-content:center;
    align-items: center;
    background-color: #F7F7F7;
+   position: absolute;
+   bottom: 0;
    color: #545454;
    width: 100%;
    height: 77px;
-      .footer-content{
-         font-family: 'Roboto';
-         font-style: normal;
-         font-weight: 400;
-         font-size: 14px;
-         line-height: 16px;
+
+   .footer-content {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      display: flex;
+      justify-content: center;
+
+      @media (max-width: 768px) {
+         flex-direction: column;
+         align-items: center;
+      }
+
+      .content-one p {
+         margin: 0;
+      }
+
+      .content-two {
          display: flex;
-         justify-content: center;
-         @media (max-width: 768px){
-            flex-direction: column;
-            align-items: center;
-         }
-         .content-one p{
+         align-items: baseline;
+
+         & p {
             margin: 0;
          }
-         .content-two{
-            display: flex;
-            align-items: baseline;
-            & p{
-            margin: 0;
-            }
-         .icon-heart{
+
+         .icon-heart {
             width: 14px;
             height: 12.88px;
             fill: #FF6B08;
             margin-left: 10px;
             margin-right: 10px;
          }
-         .team-link{
+
+         .team-link {
             text-decoration: underline;
             color: inherit;
          }
       }
-      }
+   }
 }
