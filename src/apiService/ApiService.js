@@ -33,4 +33,14 @@ const page = 1;
     catch(error){console.log('ERROR -->', error)}
   };
 
-  export default {fetchTrendFilms,fetchSearchFilms,fetchFilmbyId, BASE_URL, API_KEY, id}
+  async function fetchGenres() {
+    try {
+      const response = await fetch(`${BASE_URL}/3/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+      const data = await response.json();
+      console.log(data.genres);
+      return data.genres;
+    } 
+    catch (error) { console.log('ERROR --> ', error) }
+  }
+
+  export default {fetchTrendFilms,fetchSearchFilms,fetchFilmbyId, fetchGenres, BASE_URL, API_KEY, id}
