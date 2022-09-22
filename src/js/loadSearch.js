@@ -1,4 +1,4 @@
-import loadTrend from "../template/loadFilms.hbs";
+import loadTrend from "../views/loadFilms.hbs";
 import ApiServiceTmdb from "../apiService/ApiService";
 
 const input = document.querySelector('.search-input');

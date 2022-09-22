@@ -18,7 +18,7 @@ async function fetchSearchFilms() {
   try {
     const response = await fetch(`${BASE_URL}/3/search/movie?api_key=${API_KEY}&query=${newQuery}&language=en-US&page=${page}&include_adult=false`)
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   }
   catch (error) { console.log('ERROR -->', error) }
@@ -28,7 +28,7 @@ async function fetchFilmById() {
   try {
     const response = await fetch(`${BASE_URL}/3/movie/${id}?api_key=${API_KEY}&language=$language=en-US`);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   }
   catch (error) { console.log('ERROR -->', error) }
