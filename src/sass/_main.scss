@@ -1,20 +1,62 @@
-main {
+body {
+    margin: 0;
+}
+.main {
+    padding: 0 75px;
+    @include tablet {
+        padding: 0 15px;
+    }
+}
+.collection {
     position: relative;
     height: 100%;
+    padding-left: 0;
     margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    li {
+        list-style: none;
+    }
 }
-.movie {
-    width: 25%;
-    margin: 50px;
-    .img_container {
+.film-card {
+    width: 275px;
+    // height: 439px;
+    margin: 15px 10px;
+    @include rwd(392) {
+        margin: 10px;
+    }
+    @include rwd(635) {
+        margin: 10px auto;
+    }
+    position: relative;
+    .film-card__img_container {
         width: 100%;
+        cursor: pointer;
         img {
             width: 100%;
+            height: 398px;
             object-fit: cover;
             border-radius: 5px;
         }
+    }
+    .film-card__title {
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        color: $color-secondary;
+        text-transform: uppercase;
+        margin: 10px 0;
+        margin-bottom: 5px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        padding-right: 3px;
+        text-overflow: ellipsis;
+    }
+    .film-card__text {
+        color: $btn-bg-accent;
+        margin: 0;
     }
 }
