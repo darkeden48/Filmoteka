@@ -7,7 +7,9 @@ let newQuery = '';
 async function fetchTrendFilms() {
   try {
     const response = await fetch(
-      `${BASE_URL}/3/trending/all/day?api_key=${API_KEY}&page=${page}`
+      // Previous url for tv shows
+      // `${BASE_URL}/3/trending/all/day?api_key=${API_KEY}&page=${page}`
+      `${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}&page=${page}`
     );
     const data = await response.json();
     // console.log(data);

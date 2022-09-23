@@ -516,6 +516,7 @@ body {
 .film-card {
   width: 275px;
   margin: 15px 10px;
+  font-family: "Roboto", sans-serif;
   position: relative;
 }
 @media (max-width: 392px) {
@@ -540,10 +541,9 @@ body {
   border-radius: 5px;
 }
 .film-card .film-card__title {
-  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   color: #000;
   text-transform: uppercase;
   margin: 10px 0;
@@ -556,6 +556,9 @@ body {
 .film-card .film-card__text {
   color: #ff6b01;
   margin: 0;
+}
+.film-card .film-card__text span {
+  font-size: 14px;
 }
 
 .footer {

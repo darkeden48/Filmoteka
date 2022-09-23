@@ -23,6 +23,7 @@ body {
     width: 275px;
     // height: 439px;
     margin: 15px 10px;
+    font-family: $main-font;
     @include rwd(392) {
         margin: 10px;
     }
@@ -41,10 +42,9 @@ body {
         }
     }
     .film-card__title {
-        font-family: $main-font;
         font-style: normal;
         font-weight: 700;
-        font-size: 12px;
+        font-size: 14px;
         color: $color-secondary;
         text-transform: uppercase;
         margin: 10px 0;
@@ -58,5 +58,8 @@ body {
     .film-card__text {
         color: $btn-bg-accent;
         margin: 0;
+        span {
+            font-size: 14px;
+        }
     }
 }
