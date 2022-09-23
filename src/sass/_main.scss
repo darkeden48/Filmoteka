@@ -15,20 +15,21 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    @include rwd(768) {
+        justify-content: space-evenly;
+    }
     li {
         list-style: none;
     }
 }
 .film-card {
     width: 275px;
-    // height: 439px;
     margin: 15px 10px;
     font-family: $main-font;
-    @include rwd(392) {
-        margin: 10px;
-    }
-    @include rwd(635) {
-        margin: 10px auto;
+    @include rwd(636) {
+        margin: 15px auto;
+        width: 95%;
+        height: 100%;
     }
     position: relative;
     .film-card__img_container {
@@ -39,6 +40,10 @@ body {
             height: 398px;
             object-fit: cover;
             border-radius: 5px;
+            @include rwd(636) {
+                height: 100%;
+                min-height: 398px;
+            }
         }
     }
     .film-card__title {

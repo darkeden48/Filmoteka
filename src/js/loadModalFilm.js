@@ -1,5 +1,3 @@
+import ApiServiceTMDB from "../apiService/ApiService";
 
-// пример получения данных
-import ApiServiceTmdb from "../apiService/ApiService";
-
-ApiServiceTmdb.fetchFilmById();
+ApiServiceTMDB.fetchFilmById();
