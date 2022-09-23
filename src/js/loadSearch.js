@@ -14,6 +14,11 @@ function searchFilm() {
 
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
+  if(!galleryList.hasChildNodes()) {
+    document.querySelector('#search_error').innerHTML = 'Search result not successful. Enter the correct movie!';
+  } else {
+    document.querySelector('#search_error').innerHTML = '';
+  }
 }
 
 // Подставляем значение

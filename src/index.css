@@ -500,6 +500,15 @@ body {
   }
 }
 
+#search_error {
+  color: #ff001b;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  text-align: center;
+}
+
 .collection {
   position: relative;
   height: 100%;

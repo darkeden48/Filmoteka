@@ -4,7 +4,10 @@ import loadTrend from '../views/loadFilms.hbs';
 
 const loadMore = document.querySelector('.load-more-button');
 const galleryList = document.querySelector('.collection');
-loadMore.addEventListener('click', onLoadMore);
+loadMore.addEventListener('click', function() {
+    document.querySelector('#search_error').innerHTML = '';
+    onLoadMore();
+});
 
 // Movie Render
 function appendImgMarkup(image) {

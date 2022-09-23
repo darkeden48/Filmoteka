@@ -7,6 +7,14 @@ body {
         padding: 0 15px;
     }
 }
+#search_error {
+    color: $color-warning-accent;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+}
 .collection {
     position: relative;
     height: 100%;
