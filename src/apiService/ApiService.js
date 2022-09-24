@@ -4,15 +4,16 @@ let id = 1;
 let page = 1;
 let newQuery = '';
 
-async function fetchTrendFilms() {
+async function fetchTrendFilms(page) {
   try {
     const response = await fetch(
-      // Previous url for tv shows
+      // URL for tv shows and movies
       // `${BASE_URL}/3/trending/all/day?api_key=${API_KEY}&page=${page}`
+
+      // URL for movies
       `${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}&page=${page}`
     );
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     console.log('ERROR --> ', error);
@@ -71,10 +72,6 @@ async function fetchGenres() {
   }
 }
 
-const incrementPage = () => {
-  page += 1;
-};
-
 const searchQuery = query => {
   newQuery = query;
 };
@@ -87,6 +84,6 @@ export default {
   BASE_URL,
   API_KEY,
   id,
-  incrementPage,
+  page,
   searchQuery,
 };

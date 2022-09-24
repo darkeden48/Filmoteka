@@ -1,12 +1,15 @@
 body {
     margin: 0;
 }
+
 .main {
     padding: 0 75px;
+
     @include tablet {
         padding: 0 15px;
     }
 }
+
 #search_error {
     color: $color-warning-accent;
     font-family: $main-font;
@@ -15,6 +18,28 @@ body {
     font-size: 14px;
     text-align: center;
 }
+
+.pagination_container {
+    height: 70px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .page-link {
+        color: #000;
+        border-radius: 5px;
+        &:hover {
+            color: #ff6b01;
+        }
+        &:focus {
+            transition: ease all .2s;;
+            background-color: $color-accent !important;
+            color: #fff !important;
+            box-shadow: 0 0 0 0.2rem rgba(78, 33, 0, 0.315)
+        }
+    }
+}
+
 .collection {
     position: relative;
     height: 100%;
@@ -23,37 +48,46 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     @include rwd(768) {
         justify-content: space-evenly;
     }
+
     li {
         list-style: none;
     }
 }
+
 .film-card {
     width: 275px;
     margin: 15px 10px;
     font-family: $main-font;
+
     @include rwd(636) {
         margin: 15px auto;
         width: 95%;
         height: 100%;
     }
+
     position: relative;
+
     .film-card__img_container {
         width: 100%;
         cursor: pointer;
+
         img {
             width: 100%;
             height: 398px;
             object-fit: cover;
             border-radius: 5px;
+
             @include rwd(636) {
                 height: 100%;
                 min-height: 398px;
             }
         }
     }
+
     .film-card__title {
         font-style: normal;
         font-weight: 700;
@@ -68,9 +102,11 @@ body {
         padding-right: 3px;
         text-overflow: ellipsis;
     }
+
     .film-card__text {
         color: $btn-bg-accent;
         margin: 0;
+
         span {
             font-size: 14px;
         }

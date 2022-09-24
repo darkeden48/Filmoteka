@@ -2,12 +2,7 @@ import ApiServiceTMDB from '../apiService/ApiService';
 import loadTrend from '../views/loadFilms.hbs';
 
 
-const loadMore = document.querySelector('.load-more-button');
 const galleryList = document.querySelector('.collection');
-loadMore.addEventListener('click', function() {
-    document.querySelector('#search_error').innerHTML = '';
-    onLoadMore();
-});
 
 // Movie Render
 function appendImgMarkup(image) {
@@ -49,13 +44,9 @@ function appendImgMarkup(image) {
 }
 
 // Setting the data
-function onLoadTrend() {
-    ApiServiceTMDB.fetchTrendFilms().then(appendImgMarkup);
+function onLoadTrend(page) {
+    ApiServiceTMDB.fetchTrendFilms(page).then(appendImgMarkup);
 };
-onLoadTrend();
+onLoadTrend(ApiServiceTMDB.page);
 
-// Next page
-function onLoadMore() {
-    ApiServiceTMDB.incrementPage();
-    onLoadTrend();
-}
+export default onLoadTrend;

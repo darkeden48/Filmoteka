@@ -154,15 +154,20 @@
             width: 60%;
         }
 
+        
         .list_container {
             width: 40%;
-
+            
             @include laptop {
                 width: 50%;
             }
-
+            
             @include tablet {
                 width: 40%;
+            }
+            
+            @include rwd(490) {
+                width: 100%;
             }
 
             @include phone {
@@ -176,11 +181,9 @@
                 @include laptop {
                     font-size: 18px;
                 }
-
-                @include tablet {
+                @include rwd(850) {
                     font-size: 14px;
                 }
-
                 @include phone {
                     font-size: 12px;
                 }
