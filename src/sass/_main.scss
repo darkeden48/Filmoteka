@@ -20,22 +20,34 @@ body {
 }
 
 .pagination_container {
-    height: 70px;
-    overflow: hidden;
+    // height: 70px;
+    // overflow: hidden;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+    #page_numbers {
+        display: flex;
+    }
+    .page-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .page-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: #000;
         border-radius: 5px;
         &:hover {
             color: #ff6b01;
         }
         &:focus {
-            transition: ease all .2s;;
+            transition: ease all .2s;
             background-color: $color-accent !important;
             color: #fff !important;
-            box-shadow: 0 0 0 0.2rem rgba(78, 33, 0, 0.315)
+            box-shadow: 0 0 0 0.2rem rgba(78, 33, 0, 0.315);
         }
     }
 }
@@ -51,6 +63,10 @@ body {
 
     @include rwd(768) {
         justify-content: space-evenly;
+    }
+
+    @include rwd(636) {
+        margin-top: 20px;
     }
 
     li {

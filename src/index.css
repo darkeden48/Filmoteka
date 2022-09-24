@@ -515,13 +515,23 @@ body {
 }
 
 .pagination_container {
-  height: 70px;
-  overflow: hidden;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.pagination_container #page_numbers {
+  display: flex;
+}
+.pagination_container .page-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .pagination_container .page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #000;
   border-radius: 5px;
 }
@@ -547,6 +557,11 @@ body {
 @media (max-width: 768px) {
   .collection {
     justify-content: space-evenly;
+  }
+}
+@media (max-width: 636px) {
+  .collection {
+    margin-top: 20px;
   }
 }
 .collection li {
