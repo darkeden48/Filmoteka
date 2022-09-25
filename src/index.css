@@ -538,7 +538,11 @@ body {
 .pagination_container .page-link:hover {
   color: #ff6b01;
 }
-.pagination_container .page-link:focus {
+.pagination_container #prev-page:focus, .pagination_container #next-page:focus {
+  box-shadow: 0 0 0 0.2rem rgba(78, 33, 0, 0.315);
+}
+
+.active_page {
   transition: ease all 0.2s;
   background-color: #ff6b08 !important;
   color: #fff !important;

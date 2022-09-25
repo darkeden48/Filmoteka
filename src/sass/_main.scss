@@ -43,13 +43,24 @@ body {
         &:hover {
             color: #ff6b01;
         }
+        // &:not(#prev-page, #next-page):focus {
+        //     transition: ease all .2s;
+        //     background-color: $color-accent !important;
+        //     color: #fff !important;
+        //     box-shadow: 0 0 0 0.2rem rgba(78, 33, 0, 0.315);
+        // }
+    }
+    #prev-page, #next-page {
         &:focus {
-            transition: ease all .2s;
-            background-color: $color-accent !important;
-            color: #fff !important;
             box-shadow: 0 0 0 0.2rem rgba(78, 33, 0, 0.315);
         }
     }
+}
+.active_page {
+    transition: ease all .2s;
+    background-color: $color-accent !important;
+    color: #fff !important;
+    box-shadow: 0 0 0 0.2rem rgba(78, 33, 0, 0.315);
 }
 
 .collection {

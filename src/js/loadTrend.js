@@ -1,5 +1,6 @@
 import ApiServiceTMDB from '../apiService/ApiService';
 import loadTrend from '../views/loadFilms.hbs';
+import getTotalPages from './pagination';
 
 
 const galleryList = document.querySelector('.collection');
@@ -46,6 +47,7 @@ function appendImgMarkup(image) {
 // Setting the data
 function onLoadTrend(page) {
     ApiServiceTMDB.fetchTrendFilms(page).then(appendImgMarkup);
+    getTotalPages();
 };
 onLoadTrend(ApiServiceTMDB.page);
 
