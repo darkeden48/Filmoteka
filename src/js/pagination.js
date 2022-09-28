@@ -18,9 +18,8 @@ function goToPage(event) {
     document.querySelector('.collection').innerHTML = '';
 
     let thisPageNum = Number(this.getAttribute('data-num'));
-    ApiServiceTMDB.page = thisPageNum - 1;
+    ApiServiceTMDB.page = thisPageNum;
     onLoadTrend(ApiServiceTMDB.page);
-    this.classList.add('active_page');
 
     getTotalPages();
 }
@@ -62,9 +61,11 @@ function insertPagination(pages) {
 function paginate(min_page, max_page) {
 
     const page_link = document.querySelectorAll('.page_num');
+    const first_ellipsis = document.querySelector('.start_ellipsis');
+    const last_ellipsis = document.querySelector('.end_ellipsis');
 
     // Hide other page links and give them event listeners
-    for (let i = 1; i < page_link.length; i++) {
+    for (let i = 0; i < page_link.length; i++) {
         page_link[i].style.display = 'none';
         page_link[i].classList.remove('active_page');
         page_link[i].addEventListener('click', goToPage);
@@ -75,33 +76,24 @@ function paginate(min_page, max_page) {
     page_link[max_page - 1].style.display = 'unset';
 
     // Display current page
-    page_link[ApiServiceTMDB.page].style.display = 'unset';
-    page_link[ApiServiceTMDB.page].classList.add('active_page');
+    page_link[ApiServiceTMDB.page - 1].style.display = 'unset';
+    page_link[ApiServiceTMDB.page - 1].classList.add('active_page');
 
-    // Display two pages before and after
-    if(ApiServiceTMDB.page <= 3) {
-        
-    }
-    console.log(max_page - 3);
-    console.log('page ' + ApiServiceTMDB.page);
-    if(ApiServiceTMDB.page >= (max_page - 3)) {
-
-    }
     for (let i = 0; i < 3; i++) {
-        page_link[ApiServiceTMDB.page + i].style.display = 'unset';
-        page_link[ApiServiceTMDB.page - i].style.display = 'unset';
-    }
-
-    const first_ellipsis = document.querySelector('.start_ellipsis');
-    const last_ellipsis = document.querySelector('.end_ellipsis');
-    if(ApiServiceTMDB.page <= 3) {
-        first_ellipsis.style.display = 'none';
-    }
-    if(ApiServiceTMDB.page >= (max_page - 4)) {
-        last_ellipsis.style.display = 'none';
-    } else {
-        first_ellipsis.style.display = 'unset';
-        last_ellipsis.style.display = 'unset';
+        if(ApiServiceTMDB.page >= (max_page - 3)) {
+            last_ellipsis.style.display = 'none';
+            first_ellipsis.style.display = 'unset';
+        }
+        else if(ApiServiceTMDB.page <= 3) {
+            first_ellipsis.style.display = 'none';
+            last_ellipsis.style.display = 'unset';
+        } 
+        else {
+            first_ellipsis.style.display = 'unset';
+            last_ellipsis.style.display = 'unset';
+        }
+        try { page_link[(ApiServiceTMDB.page - 1) - i].style.display = 'unset' } catch (error){}
+        try { page_link[(ApiServiceTMDB.page - 1) + i].style.display = 'unset' } catch (error) {}
     }
 }
 
@@ -111,11 +103,13 @@ function nextPage(event) {
     event.preventDefault();
     ApiServiceTMDB.page++;
     onLoadTrend(ApiServiceTMDB.page);
+    getTotalPages();
 }
 function prevPage(event) {
     event.preventDefault();
     ApiServiceTMDB.page--;
     onLoadTrend(ApiServiceTMDB.page);
+    getTotalPages();
 }
 
 export default getTotalPages;
