@@ -70,7 +70,6 @@ function paginate(min_page, max_page) {
     }
     page_link[ApiServiceTMDB.page - 1].style.display = 'unset';
     page_link[ApiServiceTMDB.page - 1].classList.add('active_page');
-    window.addEventListener('resize', getPageLinks());
     window.addEventListener('load', getPageLinks());
     function getPageLinks() {
         if(window.innerWidth > 400) {
