@@ -59,42 +59,54 @@ function insertPagination(pages) {
 }
 
 function paginate(min_page, max_page) {
-
     const page_link = document.querySelectorAll('.page_num');
     const first_ellipsis = document.querySelector('.start_ellipsis');
     const last_ellipsis = document.querySelector('.end_ellipsis');
-
     // Hide other page links and give them event listeners
     for (let i = 0; i < page_link.length; i++) {
         page_link[i].style.display = 'none';
         page_link[i].classList.remove('active_page');
         page_link[i].addEventListener('click', goToPage);
     }
-
-    // Display max and min page
-    page_link[min_page].style.display = 'unset';
-    page_link[max_page - 1].style.display = 'unset';
-
-    // Display current page
     page_link[ApiServiceTMDB.page - 1].style.display = 'unset';
     page_link[ApiServiceTMDB.page - 1].classList.add('active_page');
+    window.addEventListener('resize', getPageLinks());
+    window.addEventListener('load', getPageLinks());
+    function getPageLinks() {
+        if(window.innerWidth > 400) {
+            // Display max and min page
+            page_link[min_page].style.display = 'unset';
+            page_link[max_page - 1].style.display = 'unset';
 
-    for (let i = 0; i < 3; i++) {
-        if(ApiServiceTMDB.page >= (max_page - 3)) {
-            last_ellipsis.style.display = 'none';
-            first_ellipsis.style.display = 'unset';
-        }
-        else if(ApiServiceTMDB.page <= 3) {
-            first_ellipsis.style.display = 'none';
-            last_ellipsis.style.display = 'unset';
+            // Page links display logic
+            for (let i = 0; i < 3; i++) {
+                if(ApiServiceTMDB.page >= (max_page - 3)) {
+                    last_ellipsis.style.display = 'none';
+                    first_ellipsis.style.display = 'unset';
+                }
+                else if(ApiServiceTMDB.page <= 3) {
+                    first_ellipsis.style.display = 'none';
+                    last_ellipsis.style.display = 'unset';
+                } 
+                else {
+                    first_ellipsis.style.display = 'unset';
+                    last_ellipsis.style.display = 'unset';
+                }
+                try { page_link[(ApiServiceTMDB.page - 1) - i].style.display = 'unset' } catch (error){}
+                try { page_link[(ApiServiceTMDB.page - 1) + i].style.display = 'unset' } catch (error) {}
+            }
         } 
-        else {
-            first_ellipsis.style.display = 'unset';
-            last_ellipsis.style.display = 'unset';
+        if(window.innerWidth <= 400) {
+            first_ellipsis.style.display = 'none';
+            last_ellipsis.style.display = 'none';
+            page_link[max_page - 1].style.display = 'none';
+            page_link[min_page].style.display = 'none';
+            for (let i = 0; i < 3; i++) {
+                try { page_link[(ApiServiceTMDB.page - 1) - i].style.display = 'unset' } catch (error){}
+                try { page_link[(ApiServiceTMDB.page - 1) + i].style.display = 'unset' } catch (error) {}
+            }
         }
-        try { page_link[(ApiServiceTMDB.page - 1) - i].style.display = 'unset' } catch (error){}
-        try { page_link[(ApiServiceTMDB.page - 1) + i].style.display = 'unset' } catch (error) {}
-    }
+    }    
 }
 
 document.querySelector('#next-page').addEventListener('click', nextPage);
