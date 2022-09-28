@@ -46,6 +46,7 @@ function appendImgMarkup(image) {
 
 // Setting the data
 function onLoadTrend(page) {
+    galleryList.innerHTML = '';
     ApiServiceTMDB.fetchTrendFilms(page).then(appendImgMarkup);
     getTotalPages();
 };

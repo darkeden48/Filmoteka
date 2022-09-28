@@ -14,6 +14,7 @@ async function fetchTrendFilms(page) {
       `${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}&page=${page}`
     );
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (error) {
     console.log('ERROR --> ', error);
