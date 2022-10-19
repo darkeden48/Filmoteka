@@ -99,6 +99,7 @@ body {
     position: relative;
 
     .film-card__img_container {
+        position: relative;
         width: 100%;
         cursor: pointer;
 
@@ -113,6 +114,39 @@ body {
                 min-height: 398px;
             }
         }
+        .film-card__vote {
+            display: block;
+            opacity: 1;
+            position:absolute;
+            left: 0;
+            bottom: 0;
+            background-color: #ff6b01;
+            color:#fff;
+            border-radius: 5px;
+            padding: 0 6px;
+           width:40px;
+            &:hover{
+                opacity: 0;
+            }
+        }
+        .film-card__vote-count{
+            display: block;
+            opacity: 0;
+            position:absolute;
+            left: 0;
+            bottom: 0;
+            color:#ff6b01;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 0 6px;
+            width:40px;
+           
+            &:hover{
+                opacity: 1;
+                width: 50%;
+            }
+        }
+//     
     }
 
     .film-card__title {
