@@ -1,6 +1,6 @@
 const BASE_URL = 'https://api.themoviedb.org';
 const API_KEY = '070151ea430b4e74dbca9bca592b262c';
-let id = 1;
+// let id = 1;
 let page = 1;
 let newQuery = '';
 
@@ -34,7 +34,7 @@ async function fetchSearchFilms() {
   }
 }
 
-async function fetchFilmById() {
+async function fetchFilmById(id=1) {
   try {
     const response = await fetch(
       `${BASE_URL}/3/movie/${id}?api_key=${API_KEY}&language=$language=en-US`
@@ -77,6 +77,10 @@ const searchQuery = query => {
   newQuery = query;
 };
 
+// const IdSearch = (value) => {
+//   id = value;
+// }
+
 export default {
   fetchTrendFilms,
   fetchSearchFilms,
@@ -84,7 +88,8 @@ export default {
   fetchGenres,
   BASE_URL,
   API_KEY,
-  id,
+  // id,
   page,
   searchQuery,
+  // IdSearch
 };
