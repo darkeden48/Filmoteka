@@ -611,6 +611,7 @@ body {
   display: block;
   opacity: 1;
   position: absolute;
+  text-align: center;
   left: 0;
   bottom: 0;
   background-color: #ff6b01;

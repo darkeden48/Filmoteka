@@ -1,5 +1,6 @@
 import loadTrend from '../views/loadFilms.hbs';
 import ApiServiceTMDB from '../apiService/ApiService';
+import filmCard from './film-card';
 
 const input = document.querySelector('.search-input');
 const galleryList = document.querySelector('.collection');
@@ -14,6 +15,7 @@ function searchFilm() {
 
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
+  ApiServiceTMDB.fetchSearchFilms().then(filmCard());
   if(!galleryList.hasChildNodes()) {
     document.querySelector('#search_error').innerHTML = 'Search result not successful. Enter the correct movie!';
   } else {

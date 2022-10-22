@@ -118,6 +118,7 @@ body {
             display: block;
             opacity: 1;
             position:absolute;
+            text-align: center;
             left: 0;
             bottom: 0;
             background-color: #ff6b01;
@@ -140,7 +141,7 @@ body {
             border-radius: 5px;
             padding: 0 6px;
             width:40px;
-           
+            
             &:hover{
                 opacity: 1;
                 width: 50%;
