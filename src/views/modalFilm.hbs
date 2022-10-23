@@ -1,8 +1,8 @@
-<div class="img_container">
-    <img src="https://image.tmdb.org/t/p/w500{{poster_path}}">
-</div>
+
+    <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" width="330px" height="450px">
+<div>
+    <h2 class="film-header">{{title}} {{name}}</h2>
 <div class="film_info">
-    <h2>{{title}} {{name}}</h2>
     <div class="film__left_info">
         <span>Vote / Votes</span>
         <span>Popularity</span>
@@ -10,11 +10,12 @@
         <span>Genre</span>
     </div>
         <div class="film__right_info">
-            <p><span>{{vote_average}}</span>{{vote_count}}</p>
-            <span>{{popularity}}</span>
+            <p><span class="vote-average">{{vote_average}}</span>/ {{vote_count}}</p>
+            <span class="popularity">{{popularity}}</span>
             <span>{{original_title}}</span>
-            <span>{{genre_ids}}</span>
+            <span class="modal-genre">{{#each genres}}{{name}}, {{/each}}</span>
         </div>
-        <p>About</p>
-        <p>{{overview}}</p>
+</div>
+<p class="about">About</p>
+<p class="about-info">{{overview}}</p>
 </div>

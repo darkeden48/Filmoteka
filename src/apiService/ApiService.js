@@ -34,7 +34,7 @@ async function fetchSearchFilms() {
   }
 }
 
-async function fetchFilmById(id=1) {
+async function fetchFilmById(id) {
   try {
     const response = await fetch(
       `${BASE_URL}/3/movie/${id}?api_key=${API_KEY}&language=$language=en-US`
@@ -66,7 +66,7 @@ async function fetchGenres() {
       `${BASE_URL}/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
     );
     const data = await response.json();
-    // console.log(data);
+    console.log(data.genres);
     return data.genres;
   } catch (error) {
     console.log('ERROR --> ', error);

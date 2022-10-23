@@ -2,7 +2,7 @@
 
 // Custom devices
 @mixin rwd($screen) {
-    @media (max-width: $screen + 'px') {
+    @media (max-width: ($screen + 'px')) {
         @content;
     }
 }

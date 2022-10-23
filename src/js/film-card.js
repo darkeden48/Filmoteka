@@ -4,7 +4,7 @@ export default function filmCard() {
     const release_dateTMP = document.getElementsByClassName('film-card__release');
     const genres_nameTMP = document.getElementsByClassName('film-card__genres');
     const movie_votesTMP = document.getElementsByClassName('film-card__vote');
-      
+    //   console.log(genres_nameTMP)
     // Hide votes statistics
     // for (let i = 0; i < movie_votesTMP.length; i++) {
     //     movie_votesTMP[i].style.display = 'none';
@@ -26,8 +26,10 @@ export default function filmCard() {
     }
     // Setting genres name into template
     ApiServiceTMDB.fetchGenres().then(genre_results => {
+        console.log(genres_nameTMP)
         for (let i = 0; i < genres_nameTMP.length; i++) {
             const genreIds = genres_nameTMP[i].innerHTML;
+            console.log(genreIds)
             const separatedIds = genreIds.split(',');
             const fetched_ids = genre_results.map(genre => genre.id);
             const fetched_names = genre_results.map(genre => genre.name);

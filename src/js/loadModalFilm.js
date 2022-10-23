@@ -1,5 +1,6 @@
 import ApiServiceTMDB from "../apiService/ApiService";
 import loadModal from '../views/modalFilm.hbs';
+import modalCard from './modal-descriptions';
 
 const main = document.querySelector('.main');
 const galleryList = document.querySelector('.collection');
@@ -9,7 +10,7 @@ const modal = document.querySelector('.film_modal');
 
 function appendImgMarkup(image) {
     modalContent.insertAdjacentHTML('beforeend', loadModal(image));
-    
+    modalCard();
 }
 
 function onLoadModal(event) {
@@ -30,7 +31,9 @@ function closeModal(e){
 }
 
 function onModalClick(evt) {
-    if (modal !== evt.target) {
+    console.log(evt.target)
+    if (evt.target !== modalContent) {
+        console.log(evt.target)
         closeModal();
     }
 }
