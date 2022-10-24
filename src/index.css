@@ -696,55 +696,62 @@ body {
   text-transform: uppercase;
   align-items: center;
   text-align: center;
+  margin: 0;
 }
 
 .button-wached {
   background: #FF6B01;
   border-radius: 5px;
   margin-right: 15px;
+  width: 130px;
+  height: 44px;
 }
 
 .button-queue {
   border: 1px solid #000000;
   border-radius: 5px;
+  width: 130px;
+  height: 44px;
 }
 
 .backdrop {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   z-index: 50;
   background-color: rgba(0, 0, 0, 0.25);
-  overflow-y: scroll;
+}
+@media (max-width: 767px) {
+  .backdrop {
+    padding: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .backdrop {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+}
+@media (min-width: 1280px) {
+  .backdrop {
+    padding: 100px 250px;
+  }
 }
 
 .film_modal {
-  position: absolute;
+  position: relative;
   background-color: white;
 }
 @media (max-width: 767px) {
   .film_modal {
-    margin: 20px;
+    overflow-y: scroll;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
-  .film_modal {
-    margin: 231px 75px;
-  }
-}
-@media (min-width: 1280px) {
-  .film_modal {
-    margin-top: 100px;
-    margin-left: 71px;
-    margin-right: 71px;
-  }
-}
-
 @media (max-width: 767px) {
   .modal__content {
-    height: 100%;
     padding-top: 48px;
     padding-left: 20px;
     padding-right: 20px;
@@ -774,19 +781,18 @@ body {
 }
 @media (max-width: 767px) {
   .modal__content img {
-    width: 330px;
+    width: 100%;
     height: 450px;
   }
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .modal__content img {
     width: 350px;
-    height: 470px;
   }
 }
 @media (min-width: 1280px) {
   .modal__content img {
-    width: 350px;
+    width: 550px;
     height: 470px;
   }
 }
