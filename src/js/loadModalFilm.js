@@ -7,7 +7,8 @@ const galleryList = document.querySelector('.collection');
 const backdrop = document.querySelector('.backdrop');
 const modalContent = document.querySelector('.modal__content');
 const modal = document.querySelector('.film_modal');
-
+const btnClose = document.querySelector('.close-svg');
+console.log(btnClose)
 function appendImgMarkup(image) {
     modalContent.insertAdjacentHTML('beforeend', loadModal(image));
     modalCard();
@@ -29,20 +30,27 @@ function closeModal(e){
     backdrop.classList.add('is-hidden');
     modalContent.innerHTML = '';
 }
+function onCrossClick(evt) {
+    console.dir(evt.target)
+    if (evt.target.contains(btnClose)||evt.target.contains(btnClose.children[0])) {
+        console.log(btnClose)
+        closeModal();
+    }
+}
 
 function onModalClick(evt) {
     console.log(evt.target)
-    if (evt.target !== modalContent) {
+    if (backdrop === evt.target ) {
         console.log(evt.target)
         closeModal();
     }
 }
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-    //   onMovieDescriptionDetailesClose();
       closeModal();
     }
     });
 
-modal.addEventListener('click', onModalClick);
+modal.addEventListener('click', onCrossClick);
+backdrop.addEventListener('click', onModalClick);
 galleryList.addEventListener('click', onLoadModal);

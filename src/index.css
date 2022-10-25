@@ -666,17 +666,21 @@ body {
   pointer-events: none;
 }
 
+.button-modal-close {
+  position: absolute;
+  cursor: pointer;
+  height: 15px;
+  padding: 0;
+  right: 5px;
+  top: 3px;
+  border: none;
+  background-color: transparent;
+}
+
 .close-svg {
   width: 15px;
   height: 15px;
   fill: #ff6b01;
-}
-
-.button-modal-close {
-  position: absolute;
-  right: 0;
-  border: none;
-  background-color: transparent;
 }
 
 .buttons {
@@ -696,15 +700,23 @@ body {
   text-transform: uppercase;
   align-items: center;
   text-align: center;
+  justify-content: center;
   margin: 0;
 }
 
 .button-wached {
-  background: #FF6B01;
+  border: 1px solid #000000;
   border-radius: 5px;
   margin-right: 15px;
   width: 130px;
   height: 44px;
+}
+.button-wached:hover, .button-wached :focus {
+  cursor: pointer;
+  background-color: #FF6B01;
+  border: none;
+  color: white;
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
 }
 
 .button-queue {
@@ -712,6 +724,13 @@ body {
   border-radius: 5px;
   width: 130px;
   height: 44px;
+}
+.button-queue:hover, .button-queue :focus {
+  cursor: pointer;
+  background-color: #FF6B01;
+  border: none;
+  color: white;
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
 }
 
 .backdrop {
@@ -750,6 +769,7 @@ body {
     overflow-y: scroll;
   }
 }
+
 @media (max-width: 767px) {
   .modal__content {
     padding-top: 48px;
@@ -832,6 +852,7 @@ body {
   margin-top: 20px;
   align-items: baseline;
 }
+
 .film__left_info {
   display: flex;
   flex-direction: column;
@@ -846,10 +867,12 @@ body {
 .film__left_info span:not(:last-child) {
   margin-bottom: 10px;
 }
+
 .vote-average {
   background: #FF6B01;
+  color: white;
   border-radius: 5px;
-  padding: 0px 3px;
+  padding: 0px 8px;
 }
 
 .film__right_info {
