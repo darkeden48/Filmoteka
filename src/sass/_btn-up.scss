@@ -1,0 +1,17 @@
+.btn-up{
+    position: fixed;
+    cursor: pointer;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    border: none;
+    outline: none;
+    border-color: transparent;
+    border-radius: 50%;
+    opacity: 0.4;
+    &:hover, :focus{
+        outline: none;
+        opacity: 1;
+        box-shadow: 7px 2px teal;
+}
+}
