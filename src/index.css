@@ -580,7 +580,12 @@ body {
   width: 275px;
   margin: 15px 10px;
   font-family: "Roboto", sans-serif;
+  transition: transform 0.5s;
+  overflow: hidden;
   position: relative;
+}
+.film-card:hover {
+  transform: scale(1.05);
 }
 @media (max-width: 636px) {
   .film-card {
@@ -770,6 +775,9 @@ body {
   }
 }
 
+.modal__content {
+  overflow: hidden;
+}
 @media (max-width: 767px) {
   .modal__content {
     padding-top: 48px;
@@ -798,6 +806,7 @@ body {
 }
 .modal__content img {
   border-radius: 5px;
+  transition: transform 0.5s;
 }
 @media (max-width: 767px) {
   .modal__content img {
@@ -815,6 +824,9 @@ body {
     width: 550px;
     height: 470px;
   }
+}
+.modal__content:hover img {
+  transform: scale(1.02);
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
