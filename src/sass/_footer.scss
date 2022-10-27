@@ -45,7 +45,23 @@
             fill: #FF6B08;
             margin-left: 10px;
             margin-right: 10px;
-         }
+            
+            animation-name: slidein;
+            animation-duration: 1s;
+            animation-iteration-count:infinite;
+}
+@keyframes slidein {
+   from {
+     scale: 1.2;
+   }
+   50%{
+      scale: 1;
+   }
+   to {
+     scale: 1.1;
+   }
+ }
+
 
          .team-link {
             text-decoration: underline;

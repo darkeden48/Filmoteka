@@ -968,6 +968,34 @@ body {
   fill: #FF6B08;
   margin-left: 10px;
   margin-right: 10px;
+  -webkit-animation-name: slidein;
+          animation-name: slidein;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+@-webkit-keyframes slidein {
+  from {
+    scale: 1.2;
+  }
+  50% {
+    scale: 1;
+  }
+  to {
+    scale: 1.1;
+  }
+}
+@keyframes slidein {
+  from {
+    scale: 1.2;
+  }
+  50% {
+    scale: 1;
+  }
+  to {
+    scale: 1.1;
+  }
 }
 .footer .footer-content .content-two .team-link {
   text-decoration: underline;
