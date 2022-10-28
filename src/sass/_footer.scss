@@ -52,12 +52,15 @@
 }
 @keyframes slidein {
    from {
+      opacity: 1;
      scale: 1.2;
    }
    50%{
+      opacity: 0.9;
       scale: 1;
    }
    to {
+      opacity: 0.85;
      scale: 1.1;
    }
  }
