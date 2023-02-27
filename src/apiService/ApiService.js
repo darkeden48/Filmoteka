@@ -14,10 +14,10 @@ async function fetchTrendFilms(page) {
       `${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}&page=${page}`
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
-    console.log('ERROR --> ', error);
+    // console.log('ERROR --> ', error);
   }
 }
 
@@ -30,7 +30,7 @@ async function fetchSearchFilms() {
     // console.log(data);
     return data;
   } catch (error) {
-    console.log('ERROR -->', error);
+    // console.log('ERROR -->', error);
   }
 }
 
@@ -43,7 +43,7 @@ async function fetchFilmById(id) {
     // console.log(data);
     return data;
   } catch (error) {
-    console.log('ERROR -->', error);
+    // console.log('ERROR -->', error);
   }
 }
 
@@ -56,7 +56,7 @@ async function fetchFilmsByGenre() {
     // console.log(data);
     return data;
   } catch (error) {
-    console.log('ERROR --> ', error);
+    // console.log('ERROR --> ', error);
   }
 }
 
@@ -66,10 +66,10 @@ async function fetchGenres() {
       `${BASE_URL}/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
     );
     const data = await response.json();
-    console.log(data.genres);
+    // console.log(data.genres);
     return data.genres;
   } catch (error) {
-    console.log('ERROR --> ', error);
+    // console.log('ERROR --> ', error);
   }
 }
 

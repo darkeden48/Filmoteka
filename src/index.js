@@ -1,4 +1,5 @@
 import './js/header';
+import './js/theme';
 import './js/loadTrend';
 import './js/loadSearch';
 import './js/loadModalFilm';
