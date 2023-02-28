@@ -92,6 +92,9 @@
         overflow-y: scroll;
     }
 }
+.dark_modal{
+    background-color: #aa8245;
+}
 .modal__content{
     overflow: hidden;
     @media (max-width: 767px) {

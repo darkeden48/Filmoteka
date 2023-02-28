@@ -575,7 +575,10 @@ body {
 }
 
 .dark_theme {
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.8117647059);
+}
+
+.dark_theme_title {
   color: #fff;
 }
 
@@ -726,7 +729,6 @@ body {
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
-  color: #000;
   text-transform: uppercase;
   margin: 10px 0;
   margin-bottom: 5px;
@@ -851,6 +853,10 @@ body {
   .film_modal {
     overflow-y: scroll;
   }
+}
+
+.dark_modal {
+  background-color: #aa8245;
 }
 
 .modal__content {

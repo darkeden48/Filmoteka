@@ -3,7 +3,10 @@ body {
 }
 
 .dark_theme{
-    background-color: #000;
+    background-color: #000000cf;
+    
+}
+.dark_theme_title{
     color: #fff;
 }
 
@@ -162,7 +165,6 @@ body {
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
-        color: $color-secondary;
         text-transform: uppercase;
         margin: 10px 0;
         margin-bottom: 5px;

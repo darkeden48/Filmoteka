@@ -7,7 +7,7 @@ export default function filmCard() {
   //   console.log(genres_nameTMP)
   // Hide votes statistics
   // for (let i = 0; i < movie_votesTMP.length; i++) {
-  //     movie_votesTMP[i].style.display = 'none';
+  //   movie_votesTMP[i].style.display = 'none';
   // }
   // Slice votes statistics
   for (let i = 0; i < movie_votesTMP.length; i++) {
