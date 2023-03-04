@@ -4,20 +4,20 @@ import filmCard from './film-card';
 import getTotalPages from './pagination';
 
 const galleryList = document.querySelector('.collection');
-   
+
 // Movie Render
 function appendImgMarkup(image) {
-    galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
-    ApiServiceTMDB.fetchTrendFilms().then(filmCard());
+  galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
+  ApiServiceTMDB.fetchTrendFilms().then(filmCard());
 }
 
 // Setting the data
 function onLoadTrend(page) {
-    galleryList.innerHTML = '';
-    ApiServiceTMDB.fetchTrendFilms(page).then(appendImgMarkup);
-    getTotalPages();
-};
+  galleryList.innerHTML = '';
+  ApiServiceTMDB.fetchTrendFilms(page).then(appendImgMarkup);
+  getTotalPages();
+}
 
-    onLoadTrend(ApiServiceTMDB.page);
+onLoadTrend(ApiServiceTMDB.page);
 
 export default onLoadTrend;
