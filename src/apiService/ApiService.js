@@ -3,6 +3,7 @@ const API_KEY = '070151ea430b4e74dbca9bca592b262c';
 // let id = 1;
 let page = 1;
 let newQuery = '';
+let pickGenre = '';
 
 async function fetchTrendFilms(page) {
   try {
@@ -47,13 +48,13 @@ async function fetchFilmById(id) {
   }
 }
 
-async function fetchFilmsByGenre() {
+async function fetchFilmsByGenre(pickGenre) {
   try {
     const response = await fetch(
-      `${BASE_URL}/3/discover/movie?api_key=${API_KEY}&with_genres=27&language=en-US`
+      `${BASE_URL}/3/discover/movie?api_key=${API_KEY}&with_genres=${pickGenre}&language=en-US`
     );
     const data = await response.json();
-    // console.log(data);
+    // console.log(data.results);
     return data;
   } catch (error) {
     // console.log('ERROR --> ', error);
@@ -66,7 +67,7 @@ async function fetchGenres() {
       `${BASE_URL}/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
     );
     const data = await response.json();
-    // console.log(data.genres);
+    console.log(data.genres);
     return data.genres;
   } catch (error) {
     // console.log('ERROR --> ', error);
@@ -75,6 +76,10 @@ async function fetchGenres() {
 
 const searchQuery = query => {
   newQuery = query;
+};
+
+const takeGenre = genre => {
+  pickGenre = genre;
 };
 
 // const IdSearch = (value) => {
@@ -86,10 +91,12 @@ export default {
   fetchSearchFilms,
   fetchFilmById,
   fetchGenres,
+  fetchFilmsByGenre,
   BASE_URL,
   API_KEY,
   // id,
   page,
   searchQuery,
+  takeGenre,
   // IdSearch
 };

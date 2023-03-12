@@ -5,9 +5,8 @@ const card = document.querySelector('.film_modal');
 
 const theme = localStorage.getItem('theme');
 themeBtn.addEventListener('click', themeBtnClick);
-console.log(titles);
 themeChange(theme);
-console.log(titles);
+
 function themeBtnClick() {
   if (themeBtn.checked === true) {
     localStorage.setItem('theme', 'dark');
@@ -20,11 +19,9 @@ function themeBtnClick() {
 
 function themeChange(theme) {
   if (theme === 'dark') {
-    console.log('adf');
     body.classList.add('dark_theme');
     card.classList.add('dark_modal');
     for (let index = 0; index < titles.length; index++) {
-      console.log(titles);
       const element = titles[index];
       element.classList.add('dark_theme_title');
     }
