@@ -760,6 +760,7 @@ body {
 }
 
 .input-genre {
+  width: 150px;
   background-color: #efb153;
 }
 

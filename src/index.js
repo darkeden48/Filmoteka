@@ -1,5 +1,6 @@
 import './js/header';
 import './js/theme';
+import './js/filterByRate';
 import './js/filterByGenre';
 import './js/loadTrend';
 import './js/loadSearch';
