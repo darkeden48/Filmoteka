@@ -1,27 +1,42 @@
-const sortButton = document.querySelector('.input-genre');
-const galleryList = document.querySelector('.collection').children;
+const sortVotesButton = document.querySelector('.sort-votes');
+const sortPopularityButton = document.querySelector('.sort-popularuty');
+const showNewFilmsButton = document.querySelector('.show-new-films');
+const galleryList = document.querySelector('.collection');
 
 function sortByVote() {
-  const gallery = Array.from(galleryList);
-  console.log(gallery);
-  const voteArray = [];
+  const gallery = Array.from(galleryList.children);
+  const newArray = [];
   for (let index = 0; index < gallery.length; index++) {
-    console.log(Number(gallery[index].dataset.vote));
-    console.log(gallery[index]);
-    voteArray.push(gallery[index]);
+    newArray.push(gallery[index]);
   }
-  //   if (voteArray.length === gallery.length) {
-  voteArray.sort((a, b) => Number(b.dataset.vote) - Number(a.dataset.vote));
-  console.log(voteArray);
-  //   }
+  newArray.sort((a, b) => Number(b.dataset.vote) - Number(a.dataset.vote));
+  console.log(newArray);
+  galleryList.innerHTML = '';
+  newArray.map(el => galleryList.insertAdjacentHTML('beforeend', el.outerHTML));
 }
-//   Array.from(galleryList).map(el => {
-//     if(Number(el.attributes['data-vote'].value)>);
-//     voteArray.push(voteInNumber);
 
-//     if (voteArray.length === galleryList.length) {
-//       return voteArray.sort((a, b) => b - a);
-//     }
-//   });
+function sortByPopularity() {
+  const gallery = Array.from(galleryList.children);
+  const newArray = [];
+  for (let index = 0; index < gallery.length; index++) {
+    newArray.push(gallery[index]);
+  }
+  newArray.sort((a, b) => Number(b.dataset.votes) - Number(a.dataset.votes));
+  galleryList.innerHTML = '';
+  newArray.map(el => galleryList.insertAdjacentHTML('beforeend', el.outerHTML));
+}
 
-sortButton.addEventListener('click', sortByVote);
+function showNotReleased() {
+  const gallery = Array.from(galleryList.children);
+  const newArray = [];
+  for (let index = 0; index < gallery.length; index++) {
+    newArray.push(gallery[index]);
+  }
+  newArray.filter(el => console.log(el.dataset.released));
+  galleryList.innerHTML = '';
+  newArray.map(el => galleryList.insertAdjacentHTML('beforeend', el.outerHTML));
+}
+
+sortVotesButton.addEventListener('click', sortByVote);
+sortPopularityButton.addEventListener('click', sortByPopularity);
+showNewFilmsButton.addEventListener('click', showNotReleased);
