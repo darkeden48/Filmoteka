@@ -1,42 +1,74 @@
+import ApiServiceTMDB from '../apiService/ApiService';
+import filmCard from './film-card';
+import loadTrend from '../views/loadFilms.hbs';
+
+const descendingSortButton = document.querySelector('.descending');
+
+const sortTitleButton = document.querySelector('.sort-title');
 const sortVotesButton = document.querySelector('.sort-votes');
 const sortPopularityButton = document.querySelector('.sort-popularuty');
-const showNewFilmsButton = document.querySelector('.show-new-films');
+const sortVotesCountButton = document.querySelector('.sort-votes-count');
+const sortReleaseButton = document.querySelector('.sort-release');
 const galleryList = document.querySelector('.collection');
 
-function sortByVote() {
-  const gallery = Array.from(galleryList.children);
-  const newArray = [];
-  for (let index = 0; index < gallery.length; index++) {
-    newArray.push(gallery[index]);
+let sortDir = 'desc';
+
+function sortingDirection(e) {
+  e.target.classList.toggle('descending');
+  console.dir(e.target);
+  if (e.target.classList.value === '') {
+    sortDir = 'asc';
+    e.target.innerHTML = 'Ascending sort';
+  } else {
+    sortDir = 'desc';
+    e.target.innerHTML = 'Descending sort';
   }
-  newArray.sort((a, b) => Number(b.dataset.vote) - Number(a.dataset.vote));
-  console.log(newArray);
-  galleryList.innerHTML = '';
-  newArray.map(el => galleryList.insertAdjacentHTML('beforeend', el.outerHTML));
+}
+
+function sortByTitle() {
+  ApiServiceTMDB.fetchDiscover(`original_title.${sortDir}`).then(data => {
+    (galleryList.innerHTML = ''),
+      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
+      ApiServiceTMDB.fetchDiscover().then(filmCard());
+  });
+}
+
+function sortByVote() {
+  console.log(sortDir);
+  ApiServiceTMDB.fetchDiscover(`vote_average.${sortDir}`).then(data => {
+    (galleryList.innerHTML = ''),
+      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
+      ApiServiceTMDB.fetchDiscover().then(filmCard());
+  });
 }
 
 function sortByPopularity() {
-  const gallery = Array.from(galleryList.children);
-  const newArray = [];
-  for (let index = 0; index < gallery.length; index++) {
-    newArray.push(gallery[index]);
-  }
-  newArray.sort((a, b) => Number(b.dataset.votes) - Number(a.dataset.votes));
-  galleryList.innerHTML = '';
-  newArray.map(el => galleryList.insertAdjacentHTML('beforeend', el.outerHTML));
+  ApiServiceTMDB.fetchDiscover(`popularity.${sortDir}`).then(data => {
+    (galleryList.innerHTML = ''),
+      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
+      ApiServiceTMDB.fetchDiscover().then(filmCard());
+  });
 }
 
-function showNotReleased() {
-  const gallery = Array.from(galleryList.children);
-  const newArray = [];
-  for (let index = 0; index < gallery.length; index++) {
-    newArray.push(gallery[index]);
-  }
-  newArray.filter(el => console.log(el.dataset.released));
-  galleryList.innerHTML = '';
-  newArray.map(el => galleryList.insertAdjacentHTML('beforeend', el.outerHTML));
+function sortVotesCount() {
+  ApiServiceTMDB.fetchDiscover(`vote_count.${sortDir}`).then(data => {
+    (galleryList.innerHTML = ''),
+      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
+      ApiServiceTMDB.fetchDiscover().then(filmCard());
+  });
 }
 
+function sortRelease() {
+  ApiServiceTMDB.fetchDiscover(`release_date.${sortDir}`).then(data => {
+    (galleryList.innerHTML = ''),
+      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
+      ApiServiceTMDB.fetchDiscover().then(filmCard());
+  });
+}
+
+descendingSortButton.addEventListener('click', sortingDirection);
+sortTitleButton.addEventListener('click', sortByTitle);
 sortVotesButton.addEventListener('click', sortByVote);
 sortPopularityButton.addEventListener('click', sortByPopularity);
-showNewFilmsButton.addEventListener('click', showNotReleased);
+sortVotesCountButton.addEventListener('click', sortVotesCount);
+sortReleaseButton.addEventListener('click', sortRelease);

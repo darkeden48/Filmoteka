@@ -570,6 +570,15 @@
   box-shadow: 0 0 0 3px #2196f3;
 }
 
+.descending {
+  background-color: rgb(40, 243, 243);
+  transition: 1s;
+}
+
+.descending:hover {
+  transform: scale(1.05);
+}
+
 body {
   margin: 0;
 }
