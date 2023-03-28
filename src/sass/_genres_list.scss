@@ -5,3 +5,8 @@ transition: 1s;
 .descending:hover{
     transform: scale(1.05);
 }
+
+.genres-item_active{
+background-color: rgb(76, 76, 227);
+border: solid 1px ;
+}
