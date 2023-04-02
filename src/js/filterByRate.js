@@ -3,25 +3,45 @@ import filmCard from './film-card';
 import loadTrend from '../views/loadFilms.hbs';
 
 const descendingSortButton = document.querySelector('.descending');
-
+const ascendingSortButton = document.querySelector('.ascending');
 const sortTitleButton = document.querySelector('.sort-title');
 const sortVotesButton = document.querySelector('.sort-votes');
 const sortPopularityButton = document.querySelector('.sort-popularuty');
 const sortVotesCountButton = document.querySelector('.sort-votes-count');
 const sortReleaseButton = document.querySelector('.sort-release');
+const sortInput = document.querySelector('.sort-input');
+const sortList = document.querySelector('.sort-list');
 const galleryList = document.querySelector('.collection');
-
+const body = document.querySelector('body');
 let sortDir = 'desc';
 
+function showSortList(e) {
+  if (e.target === sortInput) {
+    sortList.style.display = 'block';
+  }
+}
+
+function closeSortList(e) {
+  if (e.target !== sortList && e.target !== sortInput)
+    sortList.style.display = 'none';
+}
+
 function sortingDirection(e) {
-  e.target.classList.toggle('descending');
+  // e.target.classList.toggle('active');
   console.dir(e.target);
-  if (e.target.classList.value === '') {
+  if (e.target.classList.value === 'ascending') {
     sortDir = 'asc';
-    e.target.innerHTML = 'Ascending sort';
-  } else {
+    ascendingSortButton.style.backgroundColor = 'orangered';
+    descendingSortButton.style.backgroundColor = '';
+    console.log(ascendingSortButton);
+  }
+  if (e.target.classList.value === 'descending') {
     sortDir = 'desc';
-    e.target.innerHTML = 'Descending sort';
+    descendingSortButton.style.backgroundColor = 'orangered';
+    ascendingSortButton.style.backgroundColor = '';
+    console.log(descendingSortButton);
+    // e.target.classList.toggle('active');
+    // e.target.id = 'descending';
   }
 }
 
@@ -66,6 +86,9 @@ function sortRelease() {
   });
 }
 
+sortInput.addEventListener('click', showSortList);
+body.addEventListener('click', closeSortList);
+ascendingSortButton.addEventListener('click', sortingDirection);
 descendingSortButton.addEventListener('click', sortingDirection);
 sortTitleButton.addEventListener('click', sortByTitle);
 sortVotesButton.addEventListener('click', sortByVote);

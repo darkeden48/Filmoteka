@@ -1,16 +1,23 @@
-<div>
+<div class="convenience-menu">
   <div class="sort-by-genre">
-    <h3 class="genres-header">Sort by Genre</h3>
+    <h3 class="genres-header">Filter by Genre</h3>
     <input class="input-genre" placeholder="choose a genre" readonly />
     <ul class="genres-list"></ul>
     <button class="apply-filter" type="button">Apply</button>
   </div>
-  <button class="descending">Descending sort</button>
-  <ul class="sort-list" style="display: flex; list-style: none">
-    <li class="sort-title"><button>Title</button></li>
-    <li class="sort-popularuty"><button>Popularity</button></li>
-    <li class="sort-votes"><button>Votes</button></li>
-    <li class="sort-votes-count"><button>Votes-count</button></li>
-    <li class="sort-release"><button>Release-data</button></li>
-  </ul>
+  <div class="sort-menu">
+    <h3 class="genres-header">Sort by</h3>
+    <input class="sort-input" placeholder="choose a genre" readonly />
+    <ul class="sort-list" list-style: none>
+      <li class="sort-title">Title</li>
+      <li class="sort-popularuty">Popularity</li>
+      <li class="sort-votes">Votes</li>
+      <li class="sort-votes-count">Votes-count</li>
+      <li class="sort-release">Release-data</li>
+    </ul>
+  </div>
+  <div class="sorting-direction">
+    <button class="ascending">^</button>
+    <button class="descending">~</button>
+  </div>
 </div>

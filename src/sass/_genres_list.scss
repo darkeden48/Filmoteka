@@ -1,8 +1,32 @@
+.convenience-menu{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.sorting-direction{
+    display: flex; 
+    flex-direction: column;
+    margin-top: 28px;
+    margin-left: 5px;
+    // position: absolute;
+    // left: 50px;
+}
 .descending{
-background-color: rgb(40, 243, 243);
+    width: 25px; 
+    height: 20px;
+background-color: rgb(238, 122, 20);
 transition: 1s;
 }
-.descending:hover{
+
+.ascending{
+    width: 25px; 
+    height: 20px;
+    background-color: rgb(238, 122, 20);
+transition: 1s;
+}
+
+.ascending:hover, .descending:hover{
     transform: scale(1.05);
 }
 
@@ -10,3 +34,28 @@ transition: 1s;
 background-color: rgb(76, 76, 227);
 border: solid 1px ;
 }
+
+// .genres-header{
+//     font-size: 20px;
+//     color: orangered;
+//     }
+    .sort-menu{
+        z-index: 5;
+    display: inline-block;
+    position: relative;
+    margin-left:50px ;
+    }
+    .sort-input{
+        width: 150px;
+    background-color: #efb153;
+    }
+    .sort-list{
+        width: 100%;
+        background-color: #ccf0f2;
+        color: #1d1d1c;
+        border: black solid 2px;
+        box-shadow: inset;
+        list-style:square;
+        position: absolute;
+        display: none;
+    }
