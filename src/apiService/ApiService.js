@@ -5,8 +5,10 @@ let page = 1;
 let newQuery = '';
 let pickGenre = '';
 let sortBy = '';
+let fetchType = 'trendFilms';
 
 async function fetchTrendFilms(page) {
+  typeInstall('trendFilms');
   try {
     const response = await fetch(
       // URL for tv shows and movies
@@ -15,7 +17,6 @@ async function fetchTrendFilms(page) {
       `${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}&page=${page}`
     );
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     // console.log('ERROR --> ', error);
@@ -24,11 +25,11 @@ async function fetchTrendFilms(page) {
 
 async function fetchSearchFilms() {
   try {
+    typeInstall('searchFilms');
     const response = await fetch(
       `${BASE_URL}/3/search/movie?api_key=${API_KEY}&query=${newQuery}&language=en-US&page=${page}&include_adult=false`
     );
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     // console.log('ERROR -->', error);
@@ -41,7 +42,6 @@ async function fetchFilmById(id) {
       `${BASE_URL}/3/movie/${id}?api_key=${API_KEY}&language=$language=en-US`
     );
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     // console.log('ERROR -->', error);
@@ -49,12 +49,12 @@ async function fetchFilmById(id) {
 }
 
 async function fetchFilmsByGenre(pickGenre) {
+  typeInstall('byGenreFilms');
   try {
     const response = await fetch(
       `${BASE_URL}/3/discover/movie?api_key=${API_KEY}&with_genres=${pickGenre}&language=en-US`
     );
     const data = await response.json();
-    // console.log(data.results);
     return data;
   } catch (error) {
     // console.log('ERROR --> ', error);
@@ -67,7 +67,6 @@ async function fetchGenres() {
       `${BASE_URL}/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
     );
     const data = await response.json();
-    // console.log(data.genres);
     return data.genres;
   } catch (error) {
     // console.log('ERROR --> ', error);
@@ -75,12 +74,12 @@ async function fetchGenres() {
 }
 
 async function fetchDiscover(sortBy) {
+  typeInstall('discoverFilms');
   try {
     const response = await fetch(
       `${BASE_URL}/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${sortBy}`
     );
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     // console.log('ERROR --> ', error);
@@ -99,10 +98,15 @@ const sortByMethod = sort => {
   sortBy = sort;
 };
 
+const typeInstall = type => {
+  console.log(type);
+  fetchType = type;
+  return type;
+};
 // const IdSearch = (value) => {
 //   id = value;
 // }
-
+// console.log(fetchType);
 export default {
   fetchTrendFilms,
   fetchSearchFilms,
@@ -114,8 +118,10 @@ export default {
   API_KEY,
   // id,
   page,
+  // fetchType,
   searchQuery,
   takeGenre,
   sortByMethod,
+  typeInstall,
   // IdSearch
 };

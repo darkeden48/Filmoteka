@@ -29,7 +29,6 @@ function appendImgMarkup(image) {
 function onLoadSearch() {
   galleryList.innerHTML = '';
   ApiServiceTMDB.fetchSearchFilms().then(appendImgMarkup);
-  getTotalPages();
 }
 
 input.addEventListener('keypress', function (e) {
