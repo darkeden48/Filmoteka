@@ -7,7 +7,6 @@ const galleryList = document.querySelector('.collection');
 
 // Movie Render
 function appendImgMarkup(image) {
-  // console.log(loadTrend(image));
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
   ApiServiceTMDB.fetchTrendFilms().then(filmCard());
 }

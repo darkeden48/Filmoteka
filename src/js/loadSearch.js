@@ -9,8 +9,7 @@ const searchButton = document.querySelector('.search_icon');
 
 function searchFilm() {
   ApiServiceTMDB.searchQuery(input.value);
-  ApiServiceTMDB.fetchSearchFilms();
-  onLoadSearch();
+  onLoadSearch(1);
   input.value = '';
 }
 
@@ -26,9 +25,10 @@ function appendImgMarkup(image) {
 }
 
 // Подставляем значение
-function onLoadSearch() {
+function onLoadSearch(page) {
   galleryList.innerHTML = '';
-  ApiServiceTMDB.fetchSearchFilms().then(appendImgMarkup);
+  ApiServiceTMDB.fetchSearchFilms(page).then(appendImgMarkup);
+  getTotalPages();
 }
 
 input.addEventListener('keypress', function (e) {
@@ -37,3 +37,5 @@ input.addEventListener('keypress', function (e) {
   }
 });
 searchButton.addEventListener('click', searchFilm);
+
+export default onLoadSearch;

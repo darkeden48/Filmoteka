@@ -1,6 +1,8 @@
 import ApiServiceTMDB from '../apiService/ApiService';
 
 import onLoadTrend from './loadTrend';
+import onLoadSearch from './loadSearch';
+import applyFilterSubmit from './filterByGenre';
 
 function getTotalPages() {
   ApiServiceTMDB.fetchTrendFilms(ApiServiceTMDB.page).then(data => {
@@ -13,19 +15,20 @@ function getTotalPages() {
 }
 
 function fetchTypeInstall(ep) {
-  console.log(ep);
-  switch (ep) {
+  console.log(ep.toString());
+  console.log(ApiServiceTMDB.page);
+  switch (ep[0].toString()) {
     case 'trendFilms':
-      console.log(1);
+      onLoadTrend(ApiServiceTMDB.page);
       break;
     case 'searchFilms':
-      console.log(2);
+      onLoadSearch(ApiServiceTMDB.page);
       break;
     case 'byGenreFilms':
-      console.log(3);
+      applyFilterSubmit(ApiServiceTMDB.page);
       break;
     case 'discoverFilms':
-      console.log(4);
+      ApiServiceTMDB.fetchDiscover();
       break;
   }
 }
@@ -37,8 +40,8 @@ function goToPage(event) {
 
   let thisPageNum = Number(this.getAttribute('data-num'));
   ApiServiceTMDB.page = thisPageNum;
+  console.log(ApiServiceTMDB.page);
   fetchTypeInstall(ApiServiceTMDB.fetchType);
-
   getTotalPages();
 }
 
@@ -136,16 +139,15 @@ document.querySelector('#prev-page').addEventListener('click', prevPage);
 function nextPage(event) {
   event.preventDefault();
   ApiServiceTMDB.page++;
-  // onLoadTrend(ApiServiceTMDB.page);
-  //   console.log(ApiServiceTMDB.fetchType);
-  fetchTypeInstall();
+
+  fetchTypeInstall(ApiServiceTMDB.fetchType);
   getTotalPages();
 }
 function prevPage(event) {
   event.preventDefault();
   ApiServiceTMDB.page--;
-  fetchTypeInstall();
-  //   onLoadTrend(ApiServiceTMDB.page);
+
+  fetchTypeInstall(ApiServiceTMDB.fetchType);
   getTotalPages();
 }
 

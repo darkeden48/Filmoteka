@@ -19,10 +19,10 @@ ApiServiceTMDB.fetchGenres().then(data =>
   )
 );
 
-function applyFilterSubmit() {
+function applyFilterSubmit(page) {
   galleryList.innerHTML = '';
   let commasArray = pickGenred.join(',');
-  ApiServiceTMDB.fetchFilmsByGenre(commasArray).then(appendImgMarkup);
+  ApiServiceTMDB.fetchFilmsByGenre(commasArray, page).then(appendImgMarkup);
 }
 
 function appendImgMarkup(image) {
@@ -54,3 +54,5 @@ body.addEventListener('click', closeGenreList);
 genreInput.addEventListener('click', showGenres);
 genreList.addEventListener('click', genrePicker);
 applyFilter.addEventListener('click', applyFilterSubmit);
+
+export default applyFilterSubmit;
