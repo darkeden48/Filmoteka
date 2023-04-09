@@ -1,6 +1,7 @@
 import ApiServiceTMDB from '../apiService/ApiService';
 import filmCard from './film-card';
 import loadTrend from '../views/loadFilms.hbs';
+import getTotalPages from './pagination';
 
 const descendingSortButton = document.querySelector('.descending');
 const ascendingSortButton = document.querySelector('.ascending');
@@ -13,6 +14,7 @@ const sortInput = document.querySelector('.sort-input');
 const sortList = document.querySelector('.sort-list');
 const galleryList = document.querySelector('.collection');
 const body = document.querySelector('body');
+
 let sortDir = 'desc';
 
 function showSortList(e) {
@@ -27,63 +29,65 @@ function closeSortList(e) {
 }
 
 function sortingDirection(e) {
-  // e.target.classList.toggle('active');
-  console.dir(e.target);
   if (e.target.classList.value === 'ascending') {
     sortDir = 'asc';
     ascendingSortButton.style.backgroundColor = 'orangered';
     descendingSortButton.style.backgroundColor = '';
-    console.log(ascendingSortButton);
   }
   if (e.target.classList.value === 'descending') {
     sortDir = 'desc';
     descendingSortButton.style.backgroundColor = 'orangered';
     ascendingSortButton.style.backgroundColor = '';
-    console.log(descendingSortButton);
-    // e.target.classList.toggle('active');
-    // e.target.id = 'descending';
   }
 }
 
 function sortByTitle() {
-  ApiServiceTMDB.fetchDiscover(`original_title.${sortDir}`).then(data => {
-    (galleryList.innerHTML = ''),
-      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
-      ApiServiceTMDB.fetchDiscover().then(filmCard());
+  ApiServiceTMDB.fetchDiscover(
+    `original_title.${sortDir}`,
+    ApiServiceTMDB.page
+  ).then(data => {
+    galleryList.innerHTML = '';
+    galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    getTotalPages(data.total_pages);
   });
+  filmCard();
 }
 
 function sortByVote() {
   console.log(sortDir);
   ApiServiceTMDB.fetchDiscover(`vote_average.${sortDir}`).then(data => {
-    (galleryList.innerHTML = ''),
-      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
-      ApiServiceTMDB.fetchDiscover().then(filmCard());
+    galleryList.innerHTML = '';
+    galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    getTotalPages(data.total_pages);
   });
+  filmCard();
 }
 
 function sortByPopularity() {
   ApiServiceTMDB.fetchDiscover(`popularity.${sortDir}`).then(data => {
-    (galleryList.innerHTML = ''),
-      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
-      ApiServiceTMDB.fetchDiscover().then(filmCard());
+    galleryList.innerHTML = '';
+    galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    getTotalPages(data.total_pages);
   });
+  filmCard();
 }
 
 function sortVotesCount() {
   ApiServiceTMDB.fetchDiscover(`vote_count.${sortDir}`).then(data => {
-    (galleryList.innerHTML = ''),
-      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
-      ApiServiceTMDB.fetchDiscover().then(filmCard());
+    galleryList.innerHTML = '';
+    galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    getTotalPages(data.total_pages);
   });
+  filmCard();
 }
 
 function sortRelease() {
   ApiServiceTMDB.fetchDiscover(`release_date.${sortDir}`).then(data => {
-    (galleryList.innerHTML = ''),
-      galleryList.insertAdjacentHTML('beforeend', loadTrend(data)),
-      ApiServiceTMDB.fetchDiscover().then(filmCard());
+    galleryList.innerHTML = '';
+    galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    getTotalPages(data.total_pages);
   });
+  filmCard();
 }
 
 sortInput.addEventListener('click', showSortList);

@@ -4,14 +4,15 @@ import onLoadTrend from './loadTrend';
 import onLoadSearch from './loadSearch';
 import applyFilterSubmit from './filterByGenre';
 
-function getTotalPages() {
-  ApiServiceTMDB.fetchTrendFilms(ApiServiceTMDB.page).then(data => {
-    let total_pages = data.total_pages;
-    if (!document.querySelector('.pagination').classList.contains('created')) {
-      insertPagination(total_pages);
-    }
+function getTotalPages(totalPages) {
+  console.log(totalPages);
+  let total_pages = totalPages;
+  if (!document.querySelector('.pagination').classList.contains('created')) {
+    insertPagination(total_pages);
+  }
+  if (totalPages !== undefined) {
     paginate(0, total_pages);
-  });
+  }
 }
 
 function fetchTypeInstall(ep) {

@@ -15,7 +15,7 @@ function searchFilm() {
 
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
-  ApiServiceTMDB.fetchSearchFilms().then(filmCard());
+  filmCard();
   if (!galleryList.hasChildNodes()) {
     document.querySelector('#search_error').innerHTML =
       'Search result not successful. Enter the correct movie!';
@@ -27,8 +27,9 @@ function appendImgMarkup(image) {
 // Подставляем значение
 function onLoadSearch(page) {
   galleryList.innerHTML = '';
-  ApiServiceTMDB.fetchSearchFilms(page).then(appendImgMarkup);
-  getTotalPages();
+  ApiServiceTMDB.fetchSearchFilms(page).then(data => {
+    appendImgMarkup(data), getTotalPages(data.total_pages);
+  });
 }
 
 input.addEventListener('keypress', function (e) {

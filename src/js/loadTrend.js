@@ -8,16 +8,17 @@ const galleryList = document.querySelector('.collection');
 // Movie Render
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
-  ApiServiceTMDB.fetchTrendFilms().then(filmCard());
+  filmCard();
 }
 
 // Setting the data
 function onLoadTrend(page) {
   galleryList.innerHTML = '';
-  ApiServiceTMDB.fetchTrendFilms(page).then(appendImgMarkup);
-  getTotalPages();
+  ApiServiceTMDB.fetchTrendFilms(page).then(data => {
+    appendImgMarkup(data), getTotalPages(data.total_pages);
+  });
 }
 
 onLoadTrend(ApiServiceTMDB.page);
-
+console.log('niv');
 export default onLoadTrend;

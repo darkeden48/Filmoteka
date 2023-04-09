@@ -1,6 +1,7 @@
 import ApiServiceTMDB from '../apiService/ApiService';
 import loadTrend from '../views/loadFilms.hbs';
 import filmCard from './film-card';
+import getTotalPages from './pagination';
 
 const body = document.querySelector('body');
 const genreInput = document.querySelector('.input-genre');
@@ -22,12 +23,15 @@ ApiServiceTMDB.fetchGenres().then(data =>
 function applyFilterSubmit(page) {
   galleryList.innerHTML = '';
   let commasArray = pickGenred.join(',');
-  ApiServiceTMDB.fetchFilmsByGenre(commasArray, page).then(appendImgMarkup);
+  ApiServiceTMDB.fetchFilmsByGenre(commasArray, page).then(data => {
+    appendImgMarkup(data), getTotalPages(data.total_pages);
+  });
 }
 
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
-  ApiServiceTMDB.fetchFilmsByGenre().then(filmCard());
+  // ApiServiceTMDB.fetchFilmsByGenre()
+  filmCard();
   genreList.style.display = 'none';
   pickGenred = [];
 }
