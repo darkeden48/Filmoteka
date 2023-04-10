@@ -20,5 +20,5 @@ function onLoadTrend(page) {
 }
 
 onLoadTrend(ApiServiceTMDB.page);
-console.log('niv');
+
 export default onLoadTrend;

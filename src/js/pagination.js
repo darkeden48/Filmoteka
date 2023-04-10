@@ -10,14 +10,12 @@ function getTotalPages(totalPages) {
   if (!document.querySelector('.pagination').classList.contains('created')) {
     insertPagination(total_pages);
   }
-  if (totalPages !== undefined) {
-    paginate(0, total_pages);
-  }
+  // if (totalPages !== undefined) {
+  paginate(0, total_pages);
+  // }
 }
 
 function fetchTypeInstall(ep) {
-  console.log(ep.toString());
-  console.log(ApiServiceTMDB.page);
   switch (ep[0].toString()) {
     case 'trendFilms':
       onLoadTrend(ApiServiceTMDB.page);
@@ -43,7 +41,7 @@ function goToPage(event) {
   ApiServiceTMDB.page = thisPageNum;
   console.log(ApiServiceTMDB.page);
   fetchTypeInstall(ApiServiceTMDB.fetchType);
-  getTotalPages();
+  // getTotalPages();
 }
 
 // Add page numeration in the pagination
@@ -58,12 +56,13 @@ function insertPagination(pages) {
   liStart2.innerHTML = '<a class="page-link start_ellipsis">...</a>';
   pages_container.appendChild(liStart1);
   pages_container.appendChild(liStart2);
-
+  console.log(pages);
   for (let i = 2; i < pages; i++) {
     let li = document.createElement('li');
     li.classList.add('page-item');
     let page_link = `<a class="page-link page_num" href="#" data-num="${i}">${i}</a>`;
     li.innerHTML = page_link;
+    // console.log(li);
     pages_container.appendChild(li);
   }
 
@@ -84,6 +83,7 @@ function paginate(min_page, max_page) {
   const first_ellipsis = document.querySelector('.start_ellipsis');
   const last_ellipsis = document.querySelector('.end_ellipsis');
   // Hide other page links and give them event listeners
+  console.log(page_link.length);
   for (let i = 0; i < page_link.length; i++) {
     page_link[i].style.display = 'none';
     page_link[i].classList.remove('active_page');
@@ -91,7 +91,10 @@ function paginate(min_page, max_page) {
   }
   page_link[ApiServiceTMDB.page - 1].style.display = 'unset';
   page_link[ApiServiceTMDB.page - 1].classList.add('active_page');
+  // if (max_page > page_link.length) {
   window.addEventListener('load', getPageLinks());
+  // }
+  // window.addEventListener('load', getPageLinks());
   function getPageLinks() {
     if (window.innerWidth > 400) {
       // Display max and min page
@@ -142,14 +145,14 @@ function nextPage(event) {
   ApiServiceTMDB.page++;
 
   fetchTypeInstall(ApiServiceTMDB.fetchType);
-  getTotalPages();
+  // getTotalPages();
 }
 function prevPage(event) {
   event.preventDefault();
   ApiServiceTMDB.page--;
 
   fetchTypeInstall(ApiServiceTMDB.fetchType);
-  getTotalPages();
+  // getTotalPages();
 }
 
 export default getTotalPages;
