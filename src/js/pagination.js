@@ -83,7 +83,7 @@ function paginate(min_page, max_page) {
   const first_ellipsis = document.querySelector('.start_ellipsis');
   const last_ellipsis = document.querySelector('.end_ellipsis');
   // Hide other page links and give them event listeners
-  console.log(page_link.length);
+  // console.log(page_link.length);
   for (let i = 0; i < page_link.length; i++) {
     page_link[i].style.display = 'none';
     page_link[i].classList.remove('active_page');
@@ -99,7 +99,7 @@ function paginate(min_page, max_page) {
     if (window.innerWidth > 400) {
       // Display max and min page
       page_link[min_page].style.display = 'unset';
-      page_link[max_page - 1].style.display = 'unset';
+      // page_link[max_page - 1].style.display = 'unset';
 
       // Page links display logic
       for (let i = 0; i < 3; i++) {

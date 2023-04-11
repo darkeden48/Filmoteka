@@ -1,3 +1,4 @@
+import { log } from 'async';
 import ApiServiceTMDB from '../apiService/ApiService';
 import loadTrend from '../views/loadFilms.hbs';
 import filmCard from './film-card';
@@ -8,8 +9,9 @@ const genreInput = document.querySelector('.input-genre');
 const genreList = document.querySelector('.genres-list');
 const galleryList = document.querySelector('.collection');
 const applyFilter = document.querySelector('.apply-filter');
-
+const resetFilter = document.querySelector('.reset-filter');
 let pickGenred = [];
+let submitedGenred = [];
 
 ApiServiceTMDB.fetchGenres().then(data =>
   data.map(el =>
@@ -30,16 +32,22 @@ function applyFilterSubmit(page) {
 
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
-  // ApiServiceTMDB.fetchFilmsByGenre()
   filmCard();
   genreList.style.display = 'none';
-  pickGenred = [];
 }
 
 const genrePicker = e => {
-  e.target.classList.add('genres-item_active');
-  pickGenred.push(e.target.id);
-  genreInput.value = e.target.innerHTML;
+  if (e.target.classList.contains('genres-item_active')) {
+    e.target.classList.remove('genres-item_active');
+    let idx = submitedGenred.indexOf(e.target.innerHTML);
+    submitedGenred.splice(idx, 1);
+    genreInput.value = submitedGenred;
+  } else {
+    e.target.classList.add('genres-item_active');
+    pickGenred.push(e.target.id);
+    submitedGenred.push(e.target.innerHTML);
+    genreInput.value = submitedGenred;
+  }
   return pickGenred;
 };
 
@@ -49,14 +57,33 @@ function showGenres(e) {
   }
 }
 
+function deleteGenres(e) {
+  // if (genreList.classList.contains('genres-item_active')) {
+  for (let i = 0; i < genreList.length; i++) {
+    console.log(genreList[i]);
+    genreList[i].classList.remove('genres-item_active');
+  }
+  // }
+
+  genreInput.value = '';
+  pickGenred = [];
+  submitedGenred = [];
+}
+
 function closeGenreList(e) {
   if (e.target !== genreList && e.target !== genreInput)
     genreList.style.display = 'none';
 }
 
+function firstRender() {
+  ApiServiceTMDB.page = 1;
+  applyFilterSubmit();
+}
+
 body.addEventListener('click', closeGenreList);
 genreInput.addEventListener('click', showGenres);
 genreList.addEventListener('click', genrePicker);
-applyFilter.addEventListener('click', applyFilterSubmit);
+applyFilter.addEventListener('click', firstRender);
+resetFilter.addEventListener('click', deleteGenres);
 
 export default applyFilterSubmit;

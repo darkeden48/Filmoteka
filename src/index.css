@@ -816,8 +816,13 @@ body {
 }
 
 .input-genre {
-  width: 150px;
+  min-width: 150px;
   background-color: #efb153;
+}
+
+.reset-filter {
+  position: absolute;
+  left: -55px;
 }
 
 .genres-list {

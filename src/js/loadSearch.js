@@ -9,6 +9,7 @@ const searchButton = document.querySelector('.search_icon');
 
 function searchFilm() {
   ApiServiceTMDB.searchQuery(input.value);
+  ApiServiceTMDB.page = 1;
   onLoadSearch(1);
   input.value = '';
 }
