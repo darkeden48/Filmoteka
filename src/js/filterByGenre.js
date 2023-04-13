@@ -1,8 +1,8 @@
-import { log } from 'async';
 import ApiServiceTMDB from '../apiService/ApiService';
 import loadTrend from '../views/loadFilms.hbs';
 import filmCard from './film-card';
 import getTotalPages from './pagination';
+import onLoadTrend from './loadTrend';
 
 const body = document.querySelector('body');
 const genreInput = document.querySelector('.input-genre');
@@ -25,6 +25,7 @@ ApiServiceTMDB.fetchGenres().then(data =>
 function applyFilterSubmit(page) {
   galleryList.innerHTML = '';
   let commasArray = pickGenred.join(',');
+  console.log(pickGenred);
   ApiServiceTMDB.fetchFilmsByGenre(commasArray, page).then(data => {
     appendImgMarkup(data), getTotalPages(data.total_pages);
   });
@@ -58,13 +59,12 @@ function showGenres(e) {
 }
 
 function deleteGenres(e) {
-  // if (genreList.classList.contains('genres-item_active')) {
-  for (let i = 0; i < genreList.length; i++) {
-    console.log(genreList[i]);
-    genreList[i].classList.remove('genres-item_active');
+  for (let i = 0; i < genreList.children.length; i++) {
+    if (genreList.children[i].classList.contains('genres-item_active')) {
+      genreList.children[i].classList.remove('genres-item_active');
+    }
   }
-  // }
-
+  // onLoadTrend(1);
   genreInput.value = '';
   pickGenred = [];
   submitedGenred = [];
@@ -77,7 +77,7 @@ function closeGenreList(e) {
 
 function firstRender() {
   ApiServiceTMDB.page = 1;
-  applyFilterSubmit();
+  applyFilterSubmit(ApiServiceTMDB.page);
 }
 
 body.addEventListener('click', closeGenreList);
@@ -86,4 +86,4 @@ genreList.addEventListener('click', genrePicker);
 applyFilter.addEventListener('click', firstRender);
 resetFilter.addEventListener('click', deleteGenres);
 
-export default applyFilterSubmit;
+export default { applyFilterSubmit, deleteGenres };

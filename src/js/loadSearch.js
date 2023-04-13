@@ -2,6 +2,7 @@ import loadTrend from '../views/loadFilms.hbs';
 import ApiServiceTMDB from '../apiService/ApiService';
 import filmCard from './film-card';
 import getTotalPages from './pagination';
+import filterByGenre from './filterByGenre';
 
 const input = document.querySelector('.search-input');
 const galleryList = document.querySelector('.collection');
@@ -12,6 +13,7 @@ function searchFilm() {
   ApiServiceTMDB.page = 1;
   onLoadSearch(1);
   input.value = '';
+  filterByGenre.deleteGenres();
 }
 
 function appendImgMarkup(image) {
