@@ -1,0 +1,55 @@
+.login {
+	width: 65%;
+	margin: 30px auto;
+	padding: 0 75px;
+	height: fit-content;
+
+	.tab-content {
+		width: 45%;
+		margin: 0 auto;
+	}
+
+	form {
+		.btn-link {
+			img {
+				width: 45px;
+				height: 45px;
+				filter: grayscale(1);
+				transition: ease all .4s;
+
+				&:hover {
+					filter: grayscale(0);
+					transform: scale(1.02);
+				}
+			}
+		}
+
+		svg {
+			width: 100%;
+		}
+
+		#register {
+			color: #007bff;
+			text-decoration: none;
+			cursor: pointer;
+
+			&:hover {
+				color: #0056b3;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	#loginError {
+		width: 100%;
+		display: none;
+		height: fit-content;
+		margin: 15px auto;
+
+		p {
+			color: #fff;
+			font-weight: 600;
+		}
+	}
+
+}
