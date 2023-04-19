@@ -41,5 +41,5 @@ input.addEventListener('keypress', function (e) {
   }
 });
 searchButton.addEventListener('click', searchFilm);
-
+console.log(onLoadSearch);
 export default onLoadSearch;

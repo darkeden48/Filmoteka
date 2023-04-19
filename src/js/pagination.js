@@ -1,7 +1,7 @@
 import ApiServiceTMDB from '../apiService/ApiService';
 import onLoadTrend from './loadTrend';
 import onLoadSearch from './loadSearch';
-import applyFilterSubmit from './filterByGenre';
+import { applyFilterSubmit } from './filterByGenre.js';
 
 function getTotalPages(totalPages) {
   console.log(totalPages);
@@ -35,18 +35,17 @@ function fetchTypeInstall(ep) {
 function goToPage(event) {
   event.preventDefault();
   document.querySelector('.collection').innerHTML = '';
-  fetchTypeInstall(ApiServiceTMDB.fetchType);
   let thisPageNum = Number(this.getAttribute('data-num'));
   ApiServiceTMDB.page = thisPageNum;
   console.log(ApiServiceTMDB.page);
-
+  fetchTypeInstall(ApiServiceTMDB.fetchType);
   // getTotalPages();
 }
 
 // Add page numeration in the pagination
 function insertPagination(pages) {
   const pages_container = document.querySelector('#page_numbers');
-
+  console.dir(pages);
   let liStart1 = document.createElement('li');
   let liStart2 = document.createElement('li');
   liStart1.classList.add('page-item');
@@ -83,11 +82,14 @@ function paginate(min_page, max_page) {
   const last_ellipsis = document.querySelector('.end_ellipsis');
   // Hide other page links and give them event listeners
   console.log(page_link);
-  for (let i = 0; i < page_link.length; i++) {
+  for (let i = 0; i < max_page; i++) {
     page_link[i].style.display = 'none';
     page_link[i].classList.remove('active_page');
     page_link[i].addEventListener('click', goToPage);
   }
+  // const pagi = document.querySelector('.page_numbers');
+  // console.dir(page_link[page_link.length]);
+  // page_link[page_link.length].style.display = 'none';
   page_link[ApiServiceTMDB.page - 1].style.display = 'unset';
   page_link[ApiServiceTMDB.page - 1].classList.add('active_page');
   window.addEventListener('load', getPageLinks());

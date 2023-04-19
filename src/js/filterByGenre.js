@@ -25,7 +25,7 @@ ApiServiceTMDB.fetchGenres().then(data =>
 function applyFilterSubmit(page) {
   galleryList.innerHTML = '';
   let commasArray = pickGenred.join(',');
-  console.log(pickGenred);
+  console.log(page);
   ApiServiceTMDB.fetchFilmsByGenre(commasArray, page).then(data => {
     appendImgMarkup(data), getTotalPages(data.total_pages);
   });
@@ -86,4 +86,4 @@ genreList.addEventListener('click', genrePicker);
 applyFilter.addEventListener('click', firstRender);
 resetFilter.addEventListener('click', deleteGenres);
 
-export default { applyFilterSubmit, deleteGenres };
+export { applyFilterSubmit, deleteGenres };
