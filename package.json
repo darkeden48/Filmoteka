@@ -6,6 +6,8 @@
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /Filmoteka/",
+    "firebase-build": "parcel build src/*.html",
+    "firebase-deploy": "node_modules/.bin/firebase deploy",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

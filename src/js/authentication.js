@@ -1,12 +1,9 @@
 import {
-    createUserWithEmailAndPassword, signInWithEmailAndPassword,
-    signOut, signInWithRedirect, getRedirectResult,
-    GoogleAuthProvider, OAuthProvider, GithubAuthProvider
+    createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup,
+    signOut, signInWithRedirect, getRedirectResult, GoogleAuthProvider,
+    fetchSignInMethodsForEmail
 } from 'firebase/auth';
-import {
-    auth, googleProvider,
-    microsoftProvider, githubProvider
-} from '../../firebase.config';
+import { auth, googleProvider, githubProvider } from '../../firebase.config';
 
 // Registration
 const registerForm = document.querySelector('#registerForm');
@@ -66,42 +63,43 @@ loginForm.addEventListener('submit', (e) => {
 
 // Sign in with Google
 const signInWithGoogle = document.querySelector('#googleLogin');
-signInWithGoogle.addEventListener('click', (e) => {
-    e.preventDefault();
-    signInWithProvider(googleProvider, GoogleAuthProvider);
+signInWithGoogle.addEventListener('click', async () => {
+    signInWithRedirect(auth, googleProvider);
+    error.removeAttribute('style');
+    loginForm.reset();
 });
 
-// Sign in with GitHub
-const signInWithGitHub = document.querySelector('#githubLogin');
-signInWithGitHub.addEventListener('click', (e) => {
-    e.preventDefault();
-    signInWithProvider(githubProvider, GithubAuthProvider);
-});
-
-// Sign in with Microsoft
-const signInWithMicrosoft = document.querySelector('#microsoftLogin');
-signInWithMicrosoft.addEventListener('click', (e) => {
-    e.preventDefault();
-    signInWithProvider(microsoftProvider, OAuthProvider);
-});
-
-async function signInWithProvider(provider, providerCredential) {
-    await signInWithRedirect(auth, provider);
+document.addEventListener('load', (e) => {
     getRedirectResult(auth)
-        .then(result => {
+        .then((response) => {
             // Getting the Access Token, so user can use it to access the Google API
-            const credential = providerCredential.credentialFromResult(result);
+            const credential = GoogleAuthProvider.credentialFromResult(response);
             const token = credential.accessToken;
-            // Signed in user
-            const user = result.user;
-
-            // Redirect user after login & clear the form
-            console.log(token);
-            document.querySelector('#home').click();
-            error.removeAttribute('style');
-            loginForm.reset();
+            const user = response.user;
+            console.log(credential);
         }).catch(err => {
+            document.querySelector('#login').click();
             error.style.display = 'block';
             error.innerHTML = err.message;
         });
-}
+})
+
+// Sign in with GitHub (need to handle manually)
+const signInWithGitHub = document.querySelector('#githubLogin');
+signInWithGitHub.addEventListener('click', (e) => {
+    e.preventDefault();
+    signInWithPopup(auth, githubProvider)
+        .then(result => {
+            // Redirect user after login & clear the form
+            document.querySelector('#home').click();
+            error.removeAttribute('style');
+            loginForm.reset();
+        }).catch((err) => {
+            error.style.display = 'block';
+            if (err.code === 'auth/account-exists-with-different-credential') {
+                error.innerHTML = 'This email is already in use. Try to sign in with a different method.';
+            } else {
+                error.innerHTML = err.message;
+            }
+        });
+});

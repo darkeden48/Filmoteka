@@ -25,6 +25,5 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
-const microsoftProvider = new OAuthProvider('microsoft.com');
 
-export { db, auth, googleProvider, microsoftProvider, githubProvider }
+export { db, auth, googleProvider, githubProvider }
