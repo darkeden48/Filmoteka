@@ -1,35 +1,48 @@
-<header class="library invisable ">
-    <div class="container">
-      <nav>
-        <div class="header__column column-1">
-          <a href="index.html" class="header__logo">
-            <div class="logo_container">
-              <img src="images/logo.png" alt="Filmoteka">
-            </div>
-            <div class="logo_name">
-              <h1>Filmoteka</h1>
-            </div>
+<header class="library invisible">
+  <div class="container">
+    <nav>
+      <div class="header__column column-1">
+        <a href="/" class="header__logo">
+          <div class="logo_container">
+            <img src="images/logo.png" alt="Filmoteka">
+          </div>
+          <div class="logo_name">
+            <h1>Filmoteka</h1>
+          </div>
+        </a>
+      </div>
+      <div class="header__column column-2">
+        <div class="list_container">
+          <a id="home" class="list">
+            Home
           </a>
         </div>
-        <div class="header__column column-2">
-          <div class="list_container">
-            <a id="home" class="list">
-              Home
-            </a>
-          </div>
-          <div class="list_container">
-            <a id="library" class="list">
-              My Library
-            </a>
-          </div>
+        <div class="list_container">
+          <a id="library" class="list">
+            My Library
+          </a>
         </div>
-      </nav>
-      <div class="buttons">
-        <div class="buttons_container">
-            <button class="watched">Watched</button>
-            <button class="queue">Queue</button>
+        <div class="list_container">
+          <div class="dropdown">
+            <button class="btn btn-outline-danger dropdown-toggle" id="profile" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="images/user.png" alt="">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="logout dropdown-item">
+                Sign out
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+    </nav>
+    <div class="buttons">
+      <div class="buttons_container">
+        <button class="watched">Watched</button>
+        <button class="queue">Queue</button>
+      </div>
     </div>
+  </div>
   </div>
 </header>

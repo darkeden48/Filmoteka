@@ -22,7 +22,7 @@
     position: relative;
     left: 0;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     font-family: 'Roboto', sans-serif;
 
     &:before {
@@ -69,6 +69,7 @@
         @include tablet {
             width: 50%;
         }
+
         @include phone {
             padding-top: 41px;
         }
@@ -154,18 +155,18 @@
             width: 60%;
         }
 
-        
+
         .list_container {
             width: 40%;
-            
+
             @include laptop {
                 width: 50%;
             }
-            
+
             @include tablet {
                 width: 40%;
             }
-            
+
             @include rwd(490) {
                 width: 100%;
             }
@@ -181,9 +182,11 @@
                 @include laptop {
                     font-size: 18px;
                 }
+
                 @include rwd(850) {
                     font-size: 14px;
                 }
+
                 @include phone {
                     font-size: 12px;
                 }
@@ -205,6 +208,22 @@
 
                 &:hover {
                     background-size: 100% 3px;
+                }
+            }
+
+            .dropdown {
+                button {
+                    padding: 3px 10px;
+                }
+
+                img {
+                    width: 30px;
+                }
+
+                .dropdown-menu {
+                    a {
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -257,4 +276,3 @@
         }
     }
 }
-

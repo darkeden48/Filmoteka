@@ -7,12 +7,11 @@
    justify-content:center;
    align-items: center;
    background-color: #F7F7F7;
-   // position: absolute;
-   // bottom: 0;
    margin-top: auto;
    color: #545454;
    width: 100%;
    height: 77px;
+   z-index: 2;
 
    .footer-content {
       font-family: 'Roboto';
@@ -46,25 +45,28 @@
             fill: #FF6B08;
             margin-left: 10px;
             margin-right: 10px;
-            
+
             animation-name: slidein;
             animation-duration: 1s;
-            animation-iteration-count:infinite;
-}
-@keyframes slidein {
-   from {
-      opacity: 1;
-     scale: 1.2;
-   }
-   50%{
-      opacity: 0.9;
-      scale: 1;
-   }
-   to {
-      opacity: 0.85;
-     scale: 1.1;
-   }
- }
+            animation-iteration-count: infinite;
+         }
+
+         @keyframes slidein {
+            from {
+               opacity: 1;
+               scale: 1.2;
+            }
+
+            50% {
+               opacity: 0.9;
+               scale: 1;
+            }
+
+            to {
+               opacity: 0.85;
+               scale: 1.1;
+            }
+         }
 
 
          .team-link {

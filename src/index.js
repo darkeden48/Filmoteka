@@ -7,3 +7,5 @@ import './js/loadSearch';
 import './js/loadModalFilm';
 import './js/authentication';
 import './js/pagination';
+import './js/spinner';
+import './js/notification';

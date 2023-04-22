@@ -25,7 +25,7 @@
   position: relative;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   font-family: "Roboto", sans-serif;
 }
 .home:before {
@@ -218,6 +218,15 @@
 .home .column-2 .list_container .list:hover {
   background-size: 100% 3px;
 }
+.home .column-2 .list_container .dropdown button {
+  padding: 3px 10px;
+}
+.home .column-2 .list_container .dropdown img {
+  width: 30px;
+}
+.home .column-2 .list_container .dropdown .dropdown-menu a {
+  cursor: pointer;
+}
 .home .search {
   width: 50%;
   height: 50%;
@@ -274,7 +283,7 @@
   position: relative;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   font-family: "Roboto", sans-serif;
 }
 .library:before {
@@ -463,6 +472,15 @@
 .library .column-2 .list_container .list:hover {
   background-size: 100% 3px;
 }
+.library .column-2 .dropdown button {
+  padding: 3px 10px;
+}
+.library .column-2 .dropdown img {
+  width: 30px;
+}
+.library .column-2 .dropdown .dropdown-menu a {
+  cursor: pointer;
+}
 .library .buttons {
   width: 287px;
   margin: 0 auto;
@@ -493,7 +511,7 @@
   display: flex;
   align-items: center;
   position: absolute;
-  z-index: 8;
+  z-index: 3;
   top: 195px;
   right: 30px;
 }
@@ -575,51 +593,47 @@
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  z-index: 4;
 }
-
-.sorting-direction {
+.convenience-menu .sorting-direction {
   display: flex;
   flex-direction: column;
   margin-top: 28px;
   margin-left: 5px;
 }
-
-.descending {
+.convenience-menu .descending {
   width: 25px;
   height: 20px;
   background-color: rgb(238, 122, 20);
   transition: 1s;
 }
-
-.ascending {
-  width: 25px;
-  height: 20px;
-  background-color: rgb(238, 122, 20);
-  transition: 1s;
-}
-
-.ascending:hover, .descending:hover {
+.convenience-menu .descending:hover {
   transform: scale(1.05);
 }
-
-.genres-item_active {
+.convenience-menu .ascending {
+  width: 25px;
+  height: 20px;
+  background-color: rgb(238, 122, 20);
+  transition: 1s;
+}
+.convenience-menu .ascending:hover {
+  transform: scale(1.05);
+}
+.convenience-menu .genres-item_active {
   background-color: rgb(76, 76, 227);
   border: solid 1px;
 }
-
-.sort-menu {
+.convenience-menu .sort-menu {
   z-index: 5;
   display: inline-block;
   position: relative;
   margin-left: 50px;
 }
-
-.sort-input {
+.convenience-menu .sort-input {
   width: 150px;
   background-color: #efb153;
 }
-
-.sort-list {
+.convenience-menu .sort-list {
   width: 100%;
   background-color: #ccf0f2;
   color: #1d1d1c;
@@ -637,9 +651,19 @@
   height: -moz-fit-content;
   height: fit-content;
 }
+@media (max-width: 768px) {
+  .login {
+    width: 95%;
+  }
+}
 .login .tab-content {
   width: 45%;
   margin: 0 auto;
+}
+@media (max-width: 1450px) {
+  .login .tab-content {
+    width: 100%;
+  }
 }
 .login form .btn-link img {
   width: 45px;
@@ -714,7 +738,7 @@ html {
   scroll-behavior: smooth;
 }
 
-.invisable {
+.invisible {
   display: none !important;
 }
 
@@ -953,7 +977,8 @@ html {
   border-radius: 5px;
 }
 
-.button-wached p, .button-queue p {
+.button-wached p,
+.button-queue p {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -974,7 +999,8 @@ html {
   width: 130px;
   height: 44px;
 }
-.button-wached:hover, .button-wached :focus {
+.button-wached:hover,
+.button-wached :focus {
   cursor: pointer;
   background-color: #FF6B01;
   border: none;
@@ -988,7 +1014,8 @@ html {
   width: 130px;
   height: 44px;
 }
-.button-queue:hover, .button-queue :focus {
+.button-queue:hover,
+.button-queue :focus {
   cursor: pointer;
   background-color: #FF6B01;
   border: none;
@@ -1158,7 +1185,8 @@ html {
   font-size: 12px;
   line-height: 14px;
 }
-.film__right_info span:not(:last-child), .film__right_info p {
+.film__right_info span:not(:last-child),
+.film__right_info p {
   margin-bottom: 12px;
 }
 
@@ -1192,6 +1220,7 @@ html {
   color: #545454;
   width: 100%;
   height: 77px;
+  z-index: 2;
 }
 @media (max-width: 768px) {
   .footer {
@@ -1268,4 +1297,91 @@ html {
   outline: none;
   opacity: 1;
   box-shadow: 7px 2px teal;
+}
+
+#blackscreen {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7254901961);
+  visibility: hidden;
+}
+
+.lds-facebook {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  z-index: 6;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #a03021;
+  box-shadow: 0 0 5px #a43f31;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+
+.active {
+  visibility: visible !important;
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+#notification {
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 400px;
+  height: 100px;
+  padding: 0 30px;
+  position: fixed;
+  z-index: 4;
+  bottom: 15px;
+  left: -400px;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#notification div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#notification div svg {
+  height: 40px;
+}
+#notification p {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
 }/*# sourceMappingURL=index.css.map */
