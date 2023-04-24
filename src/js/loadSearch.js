@@ -9,7 +9,11 @@ const galleryList = document.querySelector('.collection');
 const searchButton = document.querySelector('.search_icon');
 
 function searchFilm() {
-  ApiServiceTMDB.searchQuery(input.value);
+  if (input.value.trim() === '') {
+    input.value = '';
+    return;
+  }
+  ApiServiceTMDB.searchQuery(input.value.trim());
   ApiServiceTMDB.page = 1;
   onLoadSearch(1);
   input.value = '';
