@@ -7,6 +7,7 @@ function getTotalPages(totalPages) {
   console.log(totalPages);
   let total_pages = totalPages;
   if (!document.querySelector('.pagination').classList.contains('created')) {
+    console.log('f');
     insertPagination(total_pages);
   }
   // if (totalPages !== undefined) {
@@ -81,7 +82,7 @@ function paginate(min_page, max_page) {
   const first_ellipsis = document.querySelector('.start_ellipsis');
   const last_ellipsis = document.querySelector('.end_ellipsis');
   // Hide other page links and give them event listeners
-  console.log(page_link);
+  console.log(max_page);
   for (let i = 0; i < max_page; i++) {
     page_link[i].style.display = 'none';
     page_link[i].classList.remove('active_page');

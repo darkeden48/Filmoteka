@@ -48,9 +48,9 @@ function sortByTitle() {
   ).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    filmCard();
     getTotalPages(data.total_pages);
   });
-  filmCard();
 }
 
 function sortByVote() {
@@ -58,36 +58,36 @@ function sortByVote() {
   ApiServiceTMDB.fetchDiscover(`vote_average.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    filmCard();
     getTotalPages(data.total_pages);
   });
-  filmCard();
 }
 
 function sortByPopularity() {
   ApiServiceTMDB.fetchDiscover(`popularity.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    filmCard();
     getTotalPages(data.total_pages);
   });
-  filmCard();
 }
 
 function sortVotesCount() {
   ApiServiceTMDB.fetchDiscover(`vote_count.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    filmCard();
     getTotalPages(data.total_pages);
   });
-  filmCard();
 }
 
 function sortRelease() {
   ApiServiceTMDB.fetchDiscover(`release_date.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
+    filmCard();
     getTotalPages(data.total_pages);
   });
-  filmCard();
 }
 
 sortInput.addEventListener('click', showSortList);
