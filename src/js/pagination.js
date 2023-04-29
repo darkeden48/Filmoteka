@@ -3,13 +3,25 @@ import onLoadTrend from './loadTrend';
 import onLoadSearch from './loadSearch';
 import { applyFilterSubmit } from './filterByGenre.js';
 
+let toti = null;
+
 function getTotalPages(totalPages) {
   console.log(totalPages);
   let total_pages = totalPages;
+  toti = totalPages;
+  // if (document.querySelector('.pagination').classList.contains('created')) {
+  //   let duse =
+  //     document.querySelector('.pagination').children[1].lastElementChild;
+
+  //   console.dir(duse);
+  //   duse.innerText = totalPages;
+  // }
   if (!document.querySelector('.pagination').classList.contains('created')) {
-    console.log('f');
+    // document.querySelector('.pagination').children[2].remove();
+
     insertPagination(total_pages);
   }
+
   // if (totalPages !== undefined) {
   paginate(0, total_pages);
   // }
@@ -22,6 +34,8 @@ function fetchTypeInstall(ep) {
       break;
     case 'searchFilms':
       onLoadSearch(ApiServiceTMDB.page);
+      // document.querySelector('.pagination').classList.remove('created');
+      // document.querySelector('.pagination').children.length = 0;
       break;
     case 'byGenreFilms':
       applyFilterSubmit(ApiServiceTMDB.page);
@@ -61,7 +75,6 @@ function insertPagination(pages) {
     li.classList.add('page-item');
     let page_link = `<a class="page-link page_num" href="#" data-num="${i}">${i}</a>`;
     li.innerHTML = page_link;
-    // console.log(li);
     pages_container.appendChild(li);
   }
 
@@ -70,7 +83,7 @@ function insertPagination(pages) {
   liEnd1.classList.add('page-item');
   liEnd2.classList.add('page-item');
   liEnd1.innerHTML = '<a class="page-link end_ellipsis">...</a>';
-  liEnd2.innerHTML = `<a class="page-link page_num" href="#" data-num="${pages}">${pages}</a>`;
+  liEnd2.innerHTML = `<a class="page-link page_num" href="#" data-num="${toti}">${toti}</a>`;
   pages_container.appendChild(liEnd1);
   pages_container.appendChild(liEnd2);
 

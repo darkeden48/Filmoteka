@@ -1,3 +1,4 @@
+// document.addEventListener('DOMContentLoaded', function () {
 const themeBtn = document.querySelector('.theme-switch__toggle');
 const body = document.querySelector('body');
 const titles = document.getElementsByTagName('h2');
@@ -5,13 +6,12 @@ const card = document.querySelector('.film_modal');
 
 const theme = localStorage.getItem('theme');
 themeBtn.addEventListener('click', themeBtnClick);
-themeChange(theme);
 
 function themeBtnClick() {
   if (themeBtn.checked === true) {
     localStorage.setItem('theme', 'dark');
     themeChange('dark');
-  } else if (themeBtn.checked === false) {
+  } else {
     localStorage.setItem('theme', 'light');
     themeChange('light');
   }
