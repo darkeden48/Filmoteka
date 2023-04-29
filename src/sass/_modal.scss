@@ -1,5 +1,5 @@
 .is-hidden {
-    display: none;
+    display: none !important;
     opacity: 1;
     pointer-events: none;
 }
@@ -23,9 +23,18 @@
 
 .buttons {
     display: flex;
+    justify-content: flex-start;
 
-    &button {
+    @include tablet {
+        justify-content: space-between;
+    }
+
+    button {
         border-radius: 5px;
+
+        @include tablet {
+            width: 45%;
+        }
     }
 }
 
@@ -78,35 +87,46 @@
 }
 
 .backdrop {
+    width: 75%;
+    height: 65vh;
     position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 50;
-    background-color: rgba(0, 0, 0, 0.25);
 
-    @media (max-width: 767px) {
-        padding: 20px;
+    @include laptop {
+        width: 90%;
     }
 
-    @media (min-width: 768px) and (max-width: 1279px) {
-        padding-top: 100px;
-        padding-bottom: 100px;
-        padding-left: 75px;
-        padding-right: 75px;
+    @include tablet {
+        // width: fit-content;
+        height: 90vh;
+        overflow-y: scroll;
     }
 
-    @media (min-width: 1280px) {
-        padding: 100px 250px;
+    @include phone {
+        width: 95%;
+        margin: 0 auto;
     }
 }
 
 .film_modal {
+    width: 100%;
+    height: 100%;
     position: relative;
     background-color: white;
 
-    @media (max-width: 767px) {
-        overflow-y: scroll;
+    @include tablet {
+        width: 85%;
+    }
+
+    @include phone {
+        height: 90%;
+        width: 100%;
     }
 }
 
@@ -115,147 +135,165 @@
 }
 
 .modal__content {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
 
-    @media (max-width: 767px) {
-        padding-top: 48px;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 48px;
+    @include tablet {
+        overflow-y: scroll;
+        flex-wrap: wrap;
+        padding: 15px;
+        justify-content: center;
     }
 
-    @media (min-width: 768px) and (max-width: 1279px) {
+    @include phone {
+        padding: 15px;
+        padding-top: 30px;
+    }
+
+    .img-container {
+        width: 40%;
+        height: 100%;
         display: flex;
-        padding-top: 42px;
-        padding-left: 28px;
-        padding-right: 30px;
-        padding-bottom: 42px;
-    }
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        margin-right: 20px;
 
-    @media (min-width: 1280px) {
-        display: flex;
-        padding-top: 50px;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-bottom: 50px;
-    }
+        @include laptop {
+            width: 50%;
+        }
 
-    & img {
-        border-radius: 5px;
-        transition: transform 0.5s;
+        @include tablet {
+            width: 95%;
+            height: 70%;
+            margin: 0;
+            margin-bottom: 30px;
+        }
 
-        @media (max-width: 767px) {
+        @include phone {
             width: 100%;
-            height: 450px;
         }
 
-        @media (min-width: 768px) and (max-width: 1279px) {
-            width: 350px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 5px;
+            transition: ease all .3s;
+
+            @include rwd(950) {
+                object-fit: cover;
+            }
+
+            @include tablet {
+                width: 100%;
+                height: 100%;
+            }
+
+            &:hover {
+                filter: sepia(60%);
+            }
+        }
+    }
+
+    .text-container {
+        width: 60%;
+        height: fit-content;
+
+        @include laptop {
+            width: 50%;
         }
 
-        @media (min-width: 1280px) {
-            width: 550px;
-            height: 470px;
+        @include tablet {
+            width: 100%;
+        }
+
+        .film-header {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 32px;
+        }
+
+        .film_info {
+            display: flex;
+            margin-top: 20px;
+            align-items: baseline;
+        }
+
+        .film__left_info {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            color: #8C8C8C;
+            margin-right: 40px;
+
+            @include laptop {
+                font-size: 12px;
+            }
+
+            & span:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+
+        .vote-average {
+            background: #FF6B01;
+            color: white;
+            border-radius: 5px;
+            padding: 0px 8px;
+        }
+
+        .film__right_info {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+
+            @include laptop {
+                font-size: 12px;
+            }
+
+            & span:not(:last-child),
+            p {
+                margin-bottom: 10px;
+            }
+        }
+
+        .about {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-top: 20px;
+            margin-bottom: 0;
+
+            @include laptop {
+                font-size: 16px;
+            }
+        }
+
+        .about-info {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+
+            @include laptop {
+                font-size: 14px;
+            }
         }
     }
-
-    &:hover img {
-        transform: scale(1.02);
-    }
-}
-
-.text-container {
-    @media (max-width: 767px) {}
-
-    @media (min-width: 768px) and (max-width: 1279px) {
-        margin-left: 32px;
-    }
-
-    @media (min-width: 1280px) {
-        margin-left: 30px;
-    }
-}
-
-.film-header {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-
-    @media (max-width: 767px) {
-        margin-top: 30px;
-    }
-
-    @media (min-width: 768px) and (max-width: 1279px) {}
-
-    @media (min-width: 1280px) {
-        font-size: 30px;
-        line-height: 35px;
-    }
-}
-
-.film_info {
-    display: flex;
-    margin-top: 20px;
-    align-items: baseline;
-}
-
-.film__left_info {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    color: #8C8C8C;
-    margin-right: 40px;
-
-    & span:not(:last-child) {
-        margin-bottom: 10px;
-    }
-}
-
-.vote-average {
-    background: #FF6B01;
-    color: white;
-    border-radius: 5px;
-    padding: 0px 8px;
-}
-
-.film__right_info {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-
-    & span:not(:last-child),
-    p {
-        margin-bottom: 12px;
-    }
-}
-
-.about {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    text-transform: uppercase;
-    margin-top: 20px;
-    margin-bottom: 0;
-}
-
-.about-info {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 20px;
-    margin-top: 10px;
-    margin-bottom: 20px;
 }

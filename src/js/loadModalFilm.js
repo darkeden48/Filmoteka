@@ -8,6 +8,7 @@ const backdrop = document.querySelector('.backdrop');
 const modalContent = document.querySelector('.modal__content');
 const modal = document.querySelector('.film_modal');
 const btnClose = document.querySelector('.close-svg');
+const blackscreen = document.querySelector('#blackscreen');
 
 function appendImgMarkup(image) {
     modalContent.insertAdjacentHTML('beforeend', loadModal(image));
@@ -16,35 +17,37 @@ function appendImgMarkup(image) {
 
 function onLoadModal(event) {
     event.preventDefault();
-    if(event.target.classList.contains('film-card__img')){
+    if (event.target.classList.contains('film-card__img')) {
         backdrop.classList.remove('is-hidden');
+        blackscreen.classList.add('active');
         ApiServiceTMDB.fetchFilmById(event.target.dataset.id).then(appendImgMarkup);
     }
     else {
         return
     }
 };
-function closeModal(e){
+function closeModal(e) {
     backdrop.classList.add('is-hidden');
+    blackscreen.classList.remove('active');
     modalContent.innerHTML = '';
 }
 function onCrossClick(evt) {
-    if (evt.target.contains(btnClose)||evt.target.contains(btnClose.children[0])) {
+    if (evt.target.contains(btnClose) || evt.target.contains(btnClose.children[0])) {
         closeModal();
     }
 }
 
 function onModalClick(evt) {
-    if (backdrop === evt.target ) {
+    if (backdrop !== evt.target) {
         closeModal();
     }
 }
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      closeModal();
+        closeModal();
     }
-    });
+});
 
 modal.addEventListener('click', onCrossClick);
-backdrop.addEventListener('click', onModalClick);
+blackscreen.addEventListener('click', onModalClick);
 galleryList.addEventListener('click', onLoadModal);

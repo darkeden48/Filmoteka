@@ -948,7 +948,7 @@ html {
 }
 
 .is-hidden {
-  display: none;
+  display: none !important;
   opacity: 1;
   pointer-events: none;
 }
@@ -972,9 +972,20 @@ html {
 
 .buttons {
   display: flex;
+  justify-content: flex-start;
 }
-.buttonsbutton {
+@media (max-width: 768px) {
+  .buttons {
+    justify-content: space-between;
+  }
+}
+.buttons button {
   border-radius: 5px;
+}
+@media (max-width: 768px) {
+  .buttons button {
+    width: 45%;
+  }
 }
 
 .button-wached p,
@@ -1024,39 +1035,50 @@ html {
 }
 
 .backdrop {
+  width: 75%;
+  height: 65vh;
   position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 50;
-  background-color: rgba(0, 0, 0, 0.25);
 }
-@media (max-width: 767px) {
+@media (max-width: 1280px) {
   .backdrop {
-    padding: 20px;
+    width: 90%;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (max-width: 768px) {
   .backdrop {
-    padding-top: 100px;
-    padding-bottom: 100px;
-    padding-left: 75px;
-    padding-right: 75px;
+    height: 90vh;
+    overflow-y: scroll;
   }
 }
-@media (min-width: 1280px) {
+@media (max-width: 400px) {
   .backdrop {
-    padding: 100px 250px;
+    width: 95%;
+    margin: 0 auto;
   }
 }
 
 .film_modal {
+  width: 100%;
+  height: 100%;
   position: relative;
   background-color: white;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .film_modal {
-    overflow-y: scroll;
+    width: 85%;
+  }
+}
+@media (max-width: 400px) {
+  .film_modal {
+    height: 90%;
+    width: 100%;
   }
 }
 
@@ -1065,150 +1087,170 @@ html {
 }
 
 .modal__content {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .modal__content {
-    padding-top: 48px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 48px;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    padding: 15px;
+    justify-content: center;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (max-width: 400px) {
   .modal__content {
-    display: flex;
-    padding-top: 42px;
-    padding-left: 28px;
-    padding-right: 30px;
-    padding-bottom: 42px;
+    padding: 15px;
+    padding-top: 30px;
   }
 }
-@media (min-width: 1280px) {
-  .modal__content {
-    display: flex;
-    padding-top: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 50px;
+.modal__content .img-container {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-right: 20px;
+}
+@media (max-width: 1280px) {
+  .modal__content .img-container {
+    width: 50%;
   }
 }
-.modal__content img {
-  border-radius: 5px;
-  transition: transform 0.5s;
+@media (max-width: 768px) {
+  .modal__content .img-container {
+    width: 95%;
+    height: 70%;
+    margin: 0;
+    margin-bottom: 30px;
+  }
 }
-@media (max-width: 767px) {
-  .modal__content img {
+@media (max-width: 400px) {
+  .modal__content .img-container {
     width: 100%;
-    height: 450px;
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
-  .modal__content img {
-    width: 350px;
+.modal__content .img-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 5px;
+  transition: ease all 0.3s;
+}
+@media (max-width: 950px) {
+  .modal__content .img-container img {
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
-@media (min-width: 1280px) {
-  .modal__content img {
-    width: 550px;
-    height: 470px;
+@media (max-width: 768px) {
+  .modal__content .img-container img {
+    width: 100%;
+    height: 100%;
   }
 }
-.modal__content:hover img {
-  transform: scale(1.02);
+.modal__content .img-container img:hover {
+  filter: sepia(60%);
 }
-
-@media (min-width: 768px) and (max-width: 1279px) {
-  .text-container {
-    margin-left: 32px;
+.modal__content .text-container {
+  width: 60%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+@media (max-width: 1280px) {
+  .modal__content .text-container {
+    width: 50%;
   }
 }
-@media (min-width: 1280px) {
-  .text-container {
-    margin-left: 30px;
+@media (max-width: 768px) {
+  .modal__content .text-container {
+    width: 100%;
   }
 }
-
-.film-header {
+.modal__content .text-container .film-header {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 32px;
 }
-@media (max-width: 767px) {
-  .film-header {
-    margin-top: 30px;
-  }
-}
-@media (min-width: 1280px) {
-  .film-header {
-    font-size: 30px;
-    line-height: 35px;
-  }
-}
-
-.film_info {
+.modal__content .text-container .film_info {
   display: flex;
   margin-top: 20px;
   align-items: baseline;
 }
-
-.film__left_info {
+.modal__content .text-container .film__left_info {
   display: flex;
   flex-direction: column;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
   color: #8C8C8C;
   margin-right: 40px;
 }
-.film__left_info span:not(:last-child) {
+@media (max-width: 1280px) {
+  .modal__content .text-container .film__left_info {
+    font-size: 12px;
+  }
+}
+.modal__content .text-container .film__left_info span:not(:last-child) {
   margin-bottom: 10px;
 }
-
-.vote-average {
+.modal__content .text-container .vote-average {
   background: #FF6B01;
   color: white;
   border-radius: 5px;
   padding: 0px 8px;
 }
-
-.film__right_info {
+.modal__content .text-container .film__right_info {
   display: flex;
   flex-direction: column;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 14px;
 }
-.film__right_info span:not(:last-child),
-.film__right_info p {
-  margin-bottom: 12px;
+@media (max-width: 1280px) {
+  .modal__content .text-container .film__right_info {
+    font-size: 12px;
+  }
 }
-
-.about {
+.modal__content .text-container .film__right_info span:not(:last-child),
+.modal__content .text-container .film__right_info p {
+  margin-bottom: 10px;
+}
+.modal__content .text-container .about {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 0;
 }
-
-.about-info {
+@media (max-width: 1280px) {
+  .modal__content .text-container .about {
+    font-size: 16px;
+  }
+}
+.modal__content .text-container .about-info {
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
+  font-weight: 300;
+  font-size: 18px;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+@media (max-width: 1280px) {
+  .modal__content .text-container .about-info {
+    font-size: 14px;
+  }
 }
 
 .footer {

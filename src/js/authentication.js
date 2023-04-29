@@ -66,11 +66,9 @@ loginForm.addEventListener('submit', (e) => {
 
 // Sign in with Google
 const signInWithGoogle = document.querySelector('#googleLogin');
-signInWithGoogle.addEventListener('click', async (e) => {
-    e.preventDefault();
+signInWithGoogle.addEventListener('click', async () => {
     await showSpinner(); // Wait for a response from redirected page
     await signInWithRedirect(auth, googleProvider);
-    console.log('bb');
     getRedirectResult(auth)
         .then(response => {
             // UNNECESSARY CODE AS LOGN AS FILMOTEKA DOESN'T HAVE ROUTES YET
