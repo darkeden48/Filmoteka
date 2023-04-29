@@ -14,12 +14,16 @@ const mainLibrary = document.querySelector('.main-library');
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase.config";
 import { sendNotification } from './notification';
+import { hideSpinner, showSpinner } from './spinner';
 
 // Auth check on window load
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
+    await showSpinner();
     onAuthStateChanged(auth, (user) => {
+        hideSpinner();
         if (user !== null) {
             // User is signed in
+            sessionStorage.setItem('uid', user.uid);
             linkLibrary[0].parentNode.classList.remove('invisible');
             linkLibrary[1].parentNode.classList.remove('invisible');
             linkLogin.classList.add('invisible');
@@ -51,6 +55,7 @@ function onLogin() {
 function onLogout() {
     signOut(auth)
         .then(() => {
+            sessionStorage.removeItem('uid');
             onLinkHome();
             sendNotification('success', 'You have successfully logged out.');
         });
@@ -72,6 +77,8 @@ function onLinkLibrary() {
     register.classList.add('invisible');
     login.classList.add('invisible');
     filters.classList.remove('invisible');
+
+
 }
 
 // Header -> Home

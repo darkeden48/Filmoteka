@@ -1,13 +1,10 @@
-const spinner = document.querySelector('#spinner');
-const blackscreen = document.querySelector('#blackscreen');
-
 var showSpinner = function () {
-    spinner.classList.add('active');
-    blackscreen.classList.add('active');
+    $('#spinner').fadeIn();
+    $('#blackscreen').fadeIn();
 }
 var hideSpinner = function () {
-    spinner.classList.remove('active');
-    blackscreen.classList.remove('active');
+    $('#spinner').fadeOut();
+    $('#blackscreen').fadeOut(300);
 }
 
 export {

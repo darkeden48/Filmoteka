@@ -6,7 +6,6 @@
     top: 0;
     bottom: 0;
     background-color: #000000b9;
-    visibility: hidden;
 }
 
 .lds-facebook {
@@ -19,7 +18,6 @@
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    visibility: hidden;
 
     div {
         display: inline-block;
@@ -45,10 +43,6 @@
             animation-delay: 0;
         }
     }
-}
-
-.active {
-    visibility: visible !important;
 }
 
 @keyframes lds-facebook {

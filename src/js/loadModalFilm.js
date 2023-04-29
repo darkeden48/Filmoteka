@@ -5,7 +5,6 @@ import { collection, setDoc, doc } from 'firebase/firestore';
 import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from '../../firebase.config';
 import { sendNotification } from './notification';
-import { forEach } from "async";
 
 const main = document.querySelector('.main');
 const galleryList = document.querySelector('.collection');
@@ -24,7 +23,7 @@ async function onLoadModal(event) {
     event.preventDefault();
     if (event.target.classList.contains('film-card__img')) {
         backdrop.classList.remove('is-hidden');
-        blackscreen.classList.add('active');
+        $('#blackscreen').fadeIn('slow');
         const filmId = event.target.dataset.id;
         await ApiServiceTMDB.fetchFilmById(filmId).then(appendImgMarkup);
 
@@ -40,16 +39,16 @@ async function onLoadModal(event) {
             addToFirestore('watched');
         });
         async function addToFirestore(collection) {
-            let user = null;
-            await onAuthStateChanged(auth, (result) => {
-                if (result == null) return;
-                user = result;
-            });
-            const docId = (user.uid).substring(0, 8) + '.' + filmId;
+            const uid = sessionStorage.getItem('uid');
+            if (uid == null || uid == undefined) {
+                await sendNotification('error', 'You must be logged in!');
+                return;
+            }
             const docRef = doc(db, `${collection}`, docId);
+            const docId = (uid).substring(0, 8) + '.' + filmId;
             setDoc(docRef, {
                 filmId: filmId,
-                userId: user.uid
+                userId: uid
             }).then(() => {
                 sendNotification('success', `Film was successfully added to ${collection}!`);
             }).catch(err => {
@@ -63,7 +62,7 @@ async function onLoadModal(event) {
 };
 function closeModal(e) {
     backdrop.classList.add('is-hidden');
-    blackscreen.classList.remove('active');
+    $('#blackscreen').fadeOut(200);
     modalContent.innerHTML = '';
 }
 function onCrossClick(evt) {

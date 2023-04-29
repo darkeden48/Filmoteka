@@ -1,4 +1,5 @@
 import './js/header';
+import './js/library';
 import './js/theme';
 import './js/filterByRate';
 import './js/filterByGenre';
