@@ -1,6 +1,11 @@
 import ApiServiceTMDB from "../apiService/ApiService";
 import loadModal from '../views/modalFilm.hbs';
 import modalCard from './modal-descriptions';
+import { collection, setDoc, doc } from 'firebase/firestore';
+import { onAuthStateChanged } from "firebase/auth";
+import { db, auth } from '../../firebase.config';
+import { sendNotification } from './notification';
+import { forEach } from "async";
 
 const main = document.querySelector('.main');
 const galleryList = document.querySelector('.collection');
@@ -15,12 +20,42 @@ function appendImgMarkup(image) {
     modalCard();
 }
 
-function onLoadModal(event) {
+async function onLoadModal(event) {
     event.preventDefault();
     if (event.target.classList.contains('film-card__img')) {
         backdrop.classList.remove('is-hidden');
         blackscreen.classList.add('active');
-        ApiServiceTMDB.fetchFilmById(event.target.dataset.id).then(appendImgMarkup);
+        const filmId = event.target.dataset.id;
+        await ApiServiceTMDB.fetchFilmById(filmId).then(appendImgMarkup);
+
+        const queue = document.querySelector('.button-queue');
+        const watched = document.querySelector('.button-watched');
+
+        queue.addEventListener('click', async (e) => {
+            e.preventDefault();
+            addToFirestore('queue');
+        });
+        watched.addEventListener('click', async (e) => {
+            e.preventDefault();
+            addToFirestore('watched');
+        });
+        async function addToFirestore(collection) {
+            let user = null;
+            await onAuthStateChanged(auth, (result) => {
+                if (result == null) return;
+                user = result;
+            });
+            const docId = (user.uid).substring(0, 8) + '.' + filmId;
+            const docRef = doc(db, `${collection}`, docId);
+            setDoc(docRef, {
+                filmId: filmId,
+                userId: user.uid
+            }).then(() => {
+                sendNotification('success', `Film was successfully added to ${collection}!`);
+            }).catch(err => {
+                sendNotification('error', err.message);
+            });
+        };
     }
     else {
         return
