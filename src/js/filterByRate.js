@@ -30,18 +30,39 @@ function closeSortList(e) {
 
 function sortingDirection(e) {
   if (e.target.classList.value === 'ascending') {
+    console.log(e.target.classList);
     sortDir = 'asc';
     ascendingSortButton.style.backgroundColor = 'orangered';
     descendingSortButton.style.backgroundColor = '';
-  }
-  if (e.target.classList.value === 'descending') {
+  } else if (e.target.classList.value === 'descending') {
+    console.log(e.target.classList);
     sortDir = 'desc';
     descendingSortButton.style.backgroundColor = 'orangered';
     ascendingSortButton.style.backgroundColor = '';
   }
+  switch (sortInput.value) {
+    case 'Title':
+      sortByTitle();
+      break;
+    case 'Popularity':
+      sortByPopularity();
+      break;
+    case 'Votes':
+      sortByVote();
+      break;
+    case 'Votes-count':
+      sortVotesCount();
+      break;
+    case 'Release-data':
+      sortRelease();
+      break;
+    default:
+      return;
+  }
 }
 
-function sortByTitle() {
+function sortByTitle(e) {
+  sortInput.value = 'Title';
   ApiServiceTMDB.fetchDiscover(
     `original_title.${sortDir}`,
     ApiServiceTMDB.page
@@ -53,8 +74,8 @@ function sortByTitle() {
   });
 }
 
-function sortByVote() {
-  console.log(sortDir);
+function sortByVote(e) {
+  sortInput.value = 'Votes';
   ApiServiceTMDB.fetchDiscover(`vote_average.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
@@ -63,7 +84,8 @@ function sortByVote() {
   });
 }
 
-function sortByPopularity() {
+function sortByPopularity(e) {
+  sortInput.value = 'Popularity';
   ApiServiceTMDB.fetchDiscover(`popularity.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
@@ -72,7 +94,8 @@ function sortByPopularity() {
   });
 }
 
-function sortVotesCount() {
+function sortVotesCount(e) {
+  sortInput.value = 'Votes-count';
   ApiServiceTMDB.fetchDiscover(`vote_count.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
@@ -81,7 +104,8 @@ function sortVotesCount() {
   });
 }
 
-function sortRelease() {
+function sortRelease(e) {
+  sortInput.value = 'Release-data';
   ApiServiceTMDB.fetchDiscover(`release_date.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
