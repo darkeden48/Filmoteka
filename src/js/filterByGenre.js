@@ -3,6 +3,7 @@ import loadTrend from '../views/loadFilms.hbs';
 import filmCard from './film-card';
 import getTotalPages from './pagination';
 import onLoadTrend from './loadTrend';
+import themeChange from './theme';
 
 const body = document.querySelector('body');
 const genreInput = document.querySelector('.input-genre');
@@ -34,6 +35,7 @@ function applyFilterSubmit(page) {
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
   filmCard();
+  themeChange(localStorage.getItem('theme'));
   genreList.style.display = 'none';
 }
 

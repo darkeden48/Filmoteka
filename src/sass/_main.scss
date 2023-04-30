@@ -3,9 +3,9 @@ body {
 }
 
 .dark_theme{
-    background-color: #000000cf;
-    
-}
+    background: rgb(159, 98, 34);
+background: linear-gradient(354deg, rgb(56, 27, 1) 0%, rgba(40, 35, 33, 0.81) 100%);
+    }
 .dark_theme_title{
     color: #fff;
 }
@@ -101,6 +101,7 @@ body {
     overflow: hidden;
     &:hover{
         transform: scale(1.05);
+        box-shadow: -5px 0px 10px 1px rgba(107, 8, 8, 0.35);
     }
     @include rwd(636) {
         margin: 15px auto;
@@ -195,22 +196,39 @@ body {
 font-size: 20px;
 color: orangered;
 }
-
+.apply-filter{
+    background-color: #ff6b01;
+    box-shadow: -5px 10px 10px 5px rgba(0,0.45,0,0.35);
+    cursor: pointer;
+}
 .input-genre{
     min-width: 150px;
 background-color: #efb153;
+box-shadow: -5px 10px 10px 5px rgba(0,0.45,0,0.35);
 }
 .reset-filter{
     position: absolute;
     left: -55px;
+    background-color: #ff6b01;
+    box-shadow: -5px 10px 10px 5px rgba(0,0.45,0,0.35);
+    cursor: pointer;
 }
 .genres-list{
-    width: 100%;
-    background-color: #ccf0f2;
+    width: 75%;
+    background-color: #f6ad54;
     color: #1d1d1c;
     border: black solid 2px;
     box-shadow: inset;
-    list-style:square;
+    list-style:none;
+    opacity: 0.9;
     position: absolute;
     display: none;
+}
+.genres-list li{
+    text-decoration: underline;
+    font-weight: 700;
+    &:hover{
+        cursor:pointer;
+        color: #f8f8f8;
+    }
 }

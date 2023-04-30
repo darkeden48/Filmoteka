@@ -1,8 +1,8 @@
-// document.addEventListener('DOMContentLoaded', function () {
 const themeBtn = document.querySelector('.theme-switch__toggle');
 const body = document.querySelector('body');
 const titles = document.getElementsByTagName('h2');
 const card = document.querySelector('.film_modal');
+const footer = document.querySelector('.footer');
 
 const theme = localStorage.getItem('theme');
 themeBtn.addEventListener('click', themeBtnClick);
@@ -21,6 +21,8 @@ function themeChange(theme) {
   if (theme === 'dark') {
     body.classList.add('dark_theme');
     card.classList.add('dark_modal');
+    footer.classList.add('dark_theme');
+    footer.style.color = 'white';
     for (let index = 0; index < titles.length; index++) {
       const element = titles[index];
       element.classList.add('dark_theme_title');
@@ -29,6 +31,8 @@ function themeChange(theme) {
   } else if (theme === 'light') {
     body.classList.remove('dark_theme');
     card.classList.remove('dark_modal');
+    footer.classList.remove('dark_theme');
+    footer.style.color = '#545454';
     for (let index = 0; index < titles.length; index++) {
       const element = titles[index];
       element.classList.remove('dark_theme_title');

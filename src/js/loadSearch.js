@@ -3,6 +3,7 @@ import ApiServiceTMDB from '../apiService/ApiService';
 import filmCard from './film-card';
 import getTotalPages from './pagination';
 import filterByGenre from './filterByGenre';
+import themeChange from './theme';
 
 const input = document.querySelector('.search-input');
 const galleryList = document.querySelector('.collection');
@@ -23,6 +24,7 @@ function searchFilm() {
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
   filmCard();
+  themeChange(localStorage.getItem('theme'));
   if (!galleryList.hasChildNodes()) {
     document.querySelector('#search_error').innerHTML =
       'Search result not successful. Enter the correct movie!';
