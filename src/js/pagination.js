@@ -1,9 +1,7 @@
 import ApiServiceTMDB from '../apiService/ApiService';
 import onLoadTrend from './loadTrend';
 import onLoadSearch from './loadSearch';
-import { applyFilterSubmit } from './filterByGenre.js';
-
-let toti = null;
+import filterByGenre from './filterByGenre.js';
 
 function getTotalPages(totalPages) {
   console.log(totalPages);
@@ -38,7 +36,7 @@ function fetchTypeInstall(ep) {
       // document.querySelector('.pagination').children.length = 0;
       break;
     case 'byGenreFilms':
-      applyFilterSubmit(ApiServiceTMDB.page);
+      filterByGenre.applyFilterSubmit(ApiServiceTMDB.page);
       break;
     case 'discoverFilms':
       ApiServiceTMDB.fetchDiscover();
