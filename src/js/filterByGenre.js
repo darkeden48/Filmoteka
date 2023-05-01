@@ -2,7 +2,6 @@ import ApiServiceTMDB from '../apiService/ApiService';
 import loadTrend from '../views/loadFilms.hbs';
 import filmCard from './film-card';
 import getTotalPages from './pagination';
-import onLoadTrend from './loadTrend';
 import themeChange from './theme';
 
 const body = document.querySelector('body');
@@ -87,4 +86,4 @@ genreList.addEventListener('click', genrePicker);
 applyFilter.addEventListener('click', firstRender);
 resetFilter.addEventListener('click', deleteGenres);
 
-export { applyFilterSubmit, deleteGenres };
+export default { applyFilterSubmit, deleteGenres };
