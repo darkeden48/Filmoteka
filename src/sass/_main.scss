@@ -110,6 +110,10 @@ background: linear-gradient(354deg, rgb(56, 27, 1) 0%, rgba(40, 35, 33, 0.81) 10
     }
     position: relative;
 
+    // .film-card__img {
+    //     background-image: url('../images/prev.jpg');
+    //   }
+
     .film-card__img_container {
         position: relative;
         width: 100%;
@@ -202,9 +206,14 @@ color: orangered;
     cursor: pointer;
 }
 .input-genre{
+    transition: 1s;
     min-width: 150px;
 background-color: #efb153;
 box-shadow: -5px 10px 10px 5px rgba(0,0.45,0,0.35);
+&:hover{
+    transition: 1s;
+    border: solid red;
+}
 }
 .reset-filter{
     position: absolute;

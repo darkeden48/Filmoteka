@@ -2,6 +2,7 @@ import ApiServiceTMDB from '../apiService/ApiService';
 import filmCard from './film-card';
 import loadTrend from '../views/loadFilms.hbs';
 import getTotalPages from './pagination';
+import onLoadTrend from './loadTrend';
 
 const descendingSortButton = document.querySelector('.descending');
 const ascendingSortButton = document.querySelector('.ascending');
@@ -55,6 +56,12 @@ function sortingDirection(e) {
       break;
     case 'Release-data':
       sortRelease();
+      break;
+    case '':
+      setTimeout(() => {
+        sortInput.classList.remove('active');
+      }, 1000);
+      sortInput.classList.add('active');
       break;
     default:
       return;

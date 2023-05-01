@@ -34,9 +34,18 @@ border: solid 1px ;
     margin-left:50px ;
     }
     .sort-input{
+        color: #1d1d1c;
         width: 150px;
     background-color: #efb153;
     box-shadow: -5px 10px 10px 5px rgba(0,0.45,0,0.35);
+    &:hover{
+        transition: 1s;
+        border: solid red;
+    }
+    }
+    .active::placeholder{
+        transition: 1s;
+        color:red;
     }
     .sort-list{
         width: 100%;

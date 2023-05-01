@@ -607,9 +607,19 @@
 }
 
 .sort-input {
+  color: #1d1d1c;
   width: 150px;
   background-color: #efb153;
   box-shadow: -5px 10px 10px 5px rgba(0, 0, 0, 0.35);
+}
+.sort-input:hover {
+  transition: 1s;
+  border: solid red;
+}
+
+.active::placeholder {
+  transition: 1s;
+  color: red;
 }
 
 .sort-list {
@@ -830,9 +840,14 @@ body {
 }
 
 .input-genre {
+  transition: 1s;
   min-width: 150px;
   background-color: #efb153;
   box-shadow: -5px 10px 10px 5px rgba(0, 0, 0, 0.35);
+}
+.input-genre:hover {
+  transition: 1s;
+  border: solid red;
 }
 
 .reset-filter {

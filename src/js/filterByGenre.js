@@ -26,7 +26,6 @@ ApiServiceTMDB.fetchGenres().then(data =>
 function applyFilterSubmit(page) {
   galleryList.innerHTML = '';
   let commasArray = pickGenred.join(',');
-  console.log(page);
   ApiServiceTMDB.fetchFilmsByGenre(commasArray, page).then(data => {
     appendImgMarkup(data), getTotalPages(data.total_pages);
   });
