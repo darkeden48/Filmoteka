@@ -44,8 +44,8 @@ async function onLoadModal(event) {
                 await sendNotification('error', 'You must be logged in!');
                 return;
             }
-            const docRef = doc(db, `${collection}`, docId);
             const docId = (uid).substring(0, 8) + '.' + filmId;
+            const docRef = doc(db, `${collection}`, docId);
             setDoc(docRef, {
                 filmId: filmId,
                 userId: uid
