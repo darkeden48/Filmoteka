@@ -1,9 +1,12 @@
 import './js/header';
+import './js/library';
 import './js/theme';
 import './js/filterByRate';
 import './js/filterByGenre';
 import './js/loadTrend';
 import './js/loadSearch';
 import './js/loadModalFilm';
-import './js/btn-up';
+import './js/authentication';
 import './js/pagination';
+import './js/spinner';
+import './js/notification';

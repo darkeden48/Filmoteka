@@ -2,14 +2,14 @@
   <div class="container">
     <nav>
       <div class="header__column column-1">
-        <a href="index.html" class="header__logo">
+        <a href="" class="header__logo">
           <div class="logo_container">
             <img src="images/logo.png" alt="Filmoteka">
           </div>
           <div class="logo_name">
             <h1> Filmoteka</h1>
-        </div>
-      </a>
+          </div>
+        </a>
       </div>
       <div class="header__column column-2">
         <div class="list_container">
@@ -17,10 +17,26 @@
             Home
           </a>
         </div>
-        <div class="list_container">
+        <div class="list_container invisible">
           <a id="library" class="list">
             My Library
           </a>
+        </div>
+        <div class="list_container">
+          <div class="dropdown">
+            <button class="btn btn-outline-light dropdown-toggle" id="profile" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="images/user.png" alt="">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="logout invisible dropdown-item">
+                Sign out
+              </a>
+              <a id="login" class="dropdown-item">
+                Sign in
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -36,5 +52,5 @@
       <p id="search_error"></p>
     </div>
   </div>
-</div>
+  </div>
 </header>

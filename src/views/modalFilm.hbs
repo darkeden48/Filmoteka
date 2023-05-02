@@ -1,25 +1,27 @@
-
-    <img class="modal-img" src='https://image.tmdb.org/t/p/w500{{poster_path}}'>
-<div class="text-container">
-    <h2 class="film-header">{{title}} {{name}}</h2>
-<div class="film_info">
-    <div class="film__left_info">
-        <span>Vote / Votes</span>
-        <span>Popularity</span>
-        <span>Original Title</span>
-        <span>Genre</span>
-    </div>
-        <div class="film__right_info">
-            <p class="vote"><span class="vote-average">{{vote_average}}</span>/ {{vote_count}}</p>
-            <span class="popularity">{{popularity}}</span>
-            <span>{{original_title}}</span>
-            <span class="modal-genre">{{#each genres}}{{name}}, {{/each}}</span>
-        </div>
+<div class='img-container'>
+  <img src='https://image.tmdb.org/t/p/w500{{poster_path}}' />
 </div>
-<p class="about">About</p>
-<p class="about-info">{{overview}}</p>
-<div class="buttons">
-      <button type="button" class="button-wached"><p>add to Watched</p></button>
-      <button type="button" class="button-queue"><p>add to queue</p></button>
+<div class='text-container'>
+  <h2 class='film-header'>{{title}} {{name}}</h2>
+  <div class='film_info'>
+    <div class='film__left_info'>
+      <span>Vote / Votes</span>
+      <span>Popularity</span>
+      <span>Original Title</span>
+      <span>Genre</span>
     </div>
+    <div class='film__right_info'>
+      <p class='vote'><span class='vote-average'>{{vote_average}}</span>/
+        {{vote_count}}</p>
+      <span class='popularity'>{{popularity}}</span>
+      <span>{{original_title}}</span>
+      <span class='modal-genre'>{{#each genres}}{{name}}, {{/each}}</span>
+    </div>
+  </div>
+  <p class='about'>About</p>
+  <p class='about-info'>{{overview}}</p>
+  <div class='buttons'>
+    <button type='button' class='button-watched'><p>add to watched</p></button>
+    <button type='button' class='button-queue'><p>add to queue</p></button>
+  </div>
 </div>

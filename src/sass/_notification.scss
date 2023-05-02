@@ -1,0 +1,30 @@
+#notification {
+    width: max-content;
+    max-width: 400px;
+    height: 100px;
+    padding: 0 30px;
+    position: fixed;
+    z-index: 51;
+    bottom: 15px;
+    left: -400px;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            height: 40px;
+        }
+    }
+
+    p {
+        font-size: 20px;
+        font-family: $main-font;
+        margin: 0;
+    }
+}

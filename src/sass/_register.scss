@@ -1,0 +1,28 @@
+.register {
+    width: 65%;
+    margin: 30px auto;
+    padding: 0 75px;
+    height: fit-content;
+
+    .tab-content {
+        width: 45%;
+        height: fit-content;
+        margin: 0 auto;
+    }
+
+    h3 {
+        width: 100%;
+    }
+
+    #registerError {
+        width: 100%;
+        display: none;
+        height: fit-content;
+        margin: 15px auto;
+
+        p {
+            color: #fff;
+            font-weight: 600;
+        }
+    }
+}

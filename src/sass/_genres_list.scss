@@ -1,4 +1,4 @@
-.convenience-menu{
+.convenience-menu {
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -23,16 +23,16 @@ box-shadow: -5px 10px 10px 5px rgba(0,0.45,0,0.35);
     transform: scale(1.1);
 }
 
-.genres-item_active{
-background-color: rgb(76, 76, 227);
-border: solid 1px ;
-}
+    .genres-item_active {
+        background-color: rgb(76, 76, 227);
+        border: solid 1px;
+    }
 
     .sort-menu{
         z-index: 5;
-    display: inline-block;
-    position: relative;
-    margin-left:50px ;
+        display: inline-block;
+        position: relative;
+        margin-left: 50px;
     }
     .sort-input{
         color: #1d1d1c;
@@ -48,7 +48,8 @@ border: solid 1px ;
         transition: 1s;
         color:red;
     }
-    .sort-list{
+
+    .sort-list {
         width: 100%;
         background-color: #f6ad54;
         color: #1d1d1c;
