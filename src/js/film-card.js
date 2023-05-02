@@ -4,18 +4,33 @@ export default function filmCard() {
   const release_dateTMP = document.getElementsByClassName('film-card__release');
   const genres_nameTMP = document.getElementsByClassName('film-card__genres');
   const movie_votesTMP = document.getElementsByClassName('film-card__vote');
-  //   console.log(genres_nameTMP)
-  // Hide votes statistics
-  // for (let i = 0; i < movie_votesTMP.length; i++) {
-  //   movie_votesTMP[i].style.display = 'none';
-  // }
+  const movie_votesCount = document.getElementsByClassName(
+    'film-card__vote-count'
+  );
+  var data = new Date();
+
   // Slice votes statistics
   for (let i = 0; i < movie_votesTMP.length; i++) {
     let stringVote = String(movie_votesTMP[i].innerHTML.slice(0, 3));
+    let releaseData = release_dateTMP[i].innerHTML.split('-');
+    var newData = new Date(
+      Number(releaseData[0]),
+      Number(releaseData[1] - 1),
+      Number(releaseData[2])
+    );
     if (stringVote % 1 != 0) {
       movie_votesTMP[i].innerHTML = Number(stringVote);
     } else {
       movie_votesTMP[i].innerHTML = Number(stringVote) + '.0';
+    }
+    if (newData > data) {
+      movie_votesTMP[i].innerHTML = 'New!!!';
+      movie_votesTMP[i].style.width = '60px';
+      movie_votesTMP[i].style.backgroundColor = 'red';
+      movie_votesCount[
+        i
+      ].innerHTML = `Release-data: ${release_dateTMP[i].innerHTML}`;
+      movie_votesCount[i].style.width = '100%';
     }
   }
   // Setting release date into template

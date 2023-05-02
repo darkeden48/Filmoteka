@@ -2,60 +2,71 @@
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    z-index: 4;
+    align-items: flex-end;
+}
 
-    .sorting-direction {
-        display: flex;
-        flex-direction: column;
-        margin-top: 28px;
-        margin-left: 5px;
-    }
+.descending{
+background-color: rgb(238, 122, 20);
+transition: 1s;
+cursor: pointer;
+box-shadow: -5px 10px 10px 5px rgba(0,0.45,0,0.35);
+}
 
-    .descending {
-        width: 25px;
-        height: 20px;
-        background-color: rgb(238, 122, 20);
-        transition: 1s;
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
+.ascending{
+    background-color: rgb(238, 122, 20);
+transition: 1s;
+cursor: pointer;
+box-shadow: -5px 10px 10px 5px rgba(0,0.45,0,0.35);
+}
 
-    .ascending {
-        width: 25px;
-        height: 20px;
-        background-color: rgb(238, 122, 20);
-        transition: 1s;
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
+.ascending:hover, .descending:hover{
+    transform: scale(1.1);
+}
 
     .genres-item_active {
         background-color: rgb(76, 76, 227);
         border: solid 1px;
     }
 
-    .sort-menu {
+    .sort-menu{
         z-index: 5;
         display: inline-block;
         position: relative;
         margin-left: 50px;
     }
-
-    .sort-input {
+    .sort-input{
+        color: #1d1d1c;
         width: 150px;
-        background-color: #efb153;
+    background-color: #efb153;
+    box-shadow: -5px 10px 10px 5px rgba(0,0.45,0,0.35);
+    &:hover{
+        transition: 1s;
+        border: solid red;
+    }
+    }
+    .active::placeholder{
+        transition: 1s;
+        color:red;
     }
 
     .sort-list {
         width: 100%;
-        background-color: #ccf0f2;
+        background-color: #f6ad54;
         color: #1d1d1c;
         border: black solid 2px;
         box-shadow: inset;
-        list-style: square;
+        list-style:none;
         position: absolute;
         display: none;
+        opacity: 0.9;
+        padding-left:20px;
+        text-align: left;
     }
-}
+    .sort-list li{
+        text-decoration: underline;
+        font-weight: 700;
+        &:hover{
+            cursor:pointer;
+            color: #f6f6f6;
+        }
+    }

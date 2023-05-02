@@ -1,14 +1,25 @@
 import ApiServiceTMDB from '../apiService/ApiService';
 import onLoadTrend from './loadTrend';
 import onLoadSearch from './loadSearch';
-import applyFilterSubmit from './filterByGenre';
+import filterByGenre from './filterByGenre.js';
 
 function getTotalPages(totalPages) {
   console.log(totalPages);
   let total_pages = totalPages;
+  toti = totalPages;
+  // if (document.querySelector('.pagination').classList.contains('created')) {
+  //   let duse =
+  //     document.querySelector('.pagination').children[1].lastElementChild;
+
+  //   console.dir(duse);
+  //   duse.innerText = totalPages;
+  // }
   if (!document.querySelector('.pagination').classList.contains('created')) {
+    // document.querySelector('.pagination').children[2].remove();
+
     insertPagination(total_pages);
   }
+
   // if (totalPages !== undefined) {
   paginate(0, total_pages);
   // }
@@ -21,9 +32,11 @@ function fetchTypeInstall(ep) {
       break;
     case 'searchFilms':
       onLoadSearch(ApiServiceTMDB.page);
+      // document.querySelector('.pagination').classList.remove('created');
+      // document.querySelector('.pagination').children.length = 0;
       break;
     case 'byGenreFilms':
-      applyFilterSubmit(ApiServiceTMDB.page);
+      filterByGenre.applyFilterSubmit(ApiServiceTMDB.page);
       break;
     case 'discoverFilms':
       ApiServiceTMDB.fetchDiscover();
@@ -35,18 +48,17 @@ function fetchTypeInstall(ep) {
 function goToPage(event) {
   event.preventDefault();
   document.querySelector('.collection').innerHTML = '';
-  fetchTypeInstall(ApiServiceTMDB.fetchType);
   let thisPageNum = Number(this.getAttribute('data-num'));
   ApiServiceTMDB.page = thisPageNum;
   console.log(ApiServiceTMDB.page);
-
+  fetchTypeInstall(ApiServiceTMDB.fetchType);
   // getTotalPages();
 }
 
 // Add page numeration in the pagination
 function insertPagination(pages) {
   const pages_container = document.querySelector('#page_numbers');
-
+  console.dir(pages);
   let liStart1 = document.createElement('li');
   let liStart2 = document.createElement('li');
   liStart1.classList.add('page-item');
@@ -61,7 +73,6 @@ function insertPagination(pages) {
     li.classList.add('page-item');
     let page_link = `<a class="page-link page_num" href="#" data-num="${i}">${i}</a>`;
     li.innerHTML = page_link;
-    // console.log(li);
     pages_container.appendChild(li);
   }
 
@@ -70,7 +81,7 @@ function insertPagination(pages) {
   liEnd1.classList.add('page-item');
   liEnd2.classList.add('page-item');
   liEnd1.innerHTML = '<a class="page-link end_ellipsis">...</a>';
-  liEnd2.innerHTML = `<a class="page-link page_num" href="#" data-num="${pages}">${pages}</a>`;
+  liEnd2.innerHTML = `<a class="page-link page_num" href="#" data-num="${toti}">${toti}</a>`;
   pages_container.appendChild(liEnd1);
   pages_container.appendChild(liEnd2);
 
@@ -82,11 +93,15 @@ function paginate(min_page, max_page) {
   const first_ellipsis = document.querySelector('.start_ellipsis');
   const last_ellipsis = document.querySelector('.end_ellipsis');
   // Hide other page links and give them event listeners
-  for (let i = 0; i < page_link.length; i++) {
+  console.log(max_page);
+  for (let i = 0; i < max_page; i++) {
     page_link[i].style.display = 'none';
     page_link[i].classList.remove('active_page');
     page_link[i].addEventListener('click', goToPage);
   }
+  // const pagi = document.querySelector('.page_numbers');
+  // console.dir(page_link[page_link.length]);
+  // page_link[page_link.length].style.display = 'none';
   page_link[ApiServiceTMDB.page - 1].style.display = 'unset';
   page_link[ApiServiceTMDB.page - 1].classList.add('active_page');
   window.addEventListener('load', getPageLinks());

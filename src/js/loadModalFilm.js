@@ -1,4 +1,4 @@
-import ApiServiceTMDB from "../apiService/ApiService";
+import ApiServiceTMDB from '../apiService/ApiService';
 import loadModal from '../views/modalFilm.hbs';
 import modalCard from './modal-descriptions';
 import { collection, setDoc, doc } from 'firebase/firestore';
@@ -15,8 +15,8 @@ const btnClose = document.querySelector('.close-svg');
 const blackscreen = document.querySelector('#blackscreen');
 
 function appendImgMarkup(image) {
-    modalContent.insertAdjacentHTML('beforeend', loadModal(image));
-    modalCard();
+  modalContent.insertAdjacentHTML('beforeend', loadModal(image));
+  modalCard();
 }
 
 async function onLoadModal(event) {

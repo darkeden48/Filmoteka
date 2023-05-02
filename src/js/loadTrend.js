@@ -2,6 +2,7 @@ import ApiServiceTMDB from '../apiService/ApiService';
 import loadTrend from '../views/loadFilms.hbs';
 import filmCard from './film-card';
 import getTotalPages from './pagination';
+import themeChange from './theme';
 
 const galleryList = document.querySelector('.collection');
 
@@ -9,6 +10,7 @@ const galleryList = document.querySelector('.collection');
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
   filmCard();
+  themeChange(localStorage.getItem('theme'));
 }
 
 // Setting the data

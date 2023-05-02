@@ -76,9 +76,7 @@ function onLinkLibrary() {
     main.classList.add('invisible');
     register.classList.add('invisible');
     login.classList.add('invisible');
-    filters.classList.remove('invisible');
-
-
+    filters.classList.add('invisible');
 }
 
 // Header -> Home

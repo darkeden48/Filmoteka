@@ -3,13 +3,18 @@ import ApiServiceTMDB from '../apiService/ApiService';
 import filmCard from './film-card';
 import getTotalPages from './pagination';
 import filterByGenre from './filterByGenre';
+import themeChange from './theme';
 
 const input = document.querySelector('.search-input');
 const galleryList = document.querySelector('.collection');
 const searchButton = document.querySelector('.search_icon');
 
 function searchFilm() {
-  ApiServiceTMDB.searchQuery(input.value);
+  if (input.value.trim() === '') {
+    input.value = '';
+    return;
+  }
+  ApiServiceTMDB.searchQuery(input.value.trim());
   ApiServiceTMDB.page = 1;
   onLoadSearch(1);
   input.value = '';
@@ -19,6 +24,7 @@ function searchFilm() {
 function appendImgMarkup(image) {
   galleryList.insertAdjacentHTML('beforeend', loadTrend(image));
   filmCard();
+  themeChange(localStorage.getItem('theme'));
   if (!galleryList.hasChildNodes()) {
     document.querySelector('#search_error').innerHTML =
       'Search result not successful. Enter the correct movie!';
@@ -41,5 +47,5 @@ input.addEventListener('keypress', function (e) {
   }
 });
 searchButton.addEventListener('click', searchFilm);
-
+console.log(onLoadSearch);
 export default onLoadSearch;
