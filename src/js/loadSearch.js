@@ -4,6 +4,7 @@ import filmCard from './film-card';
 import getTotalPages from './pagination';
 import filterByGenre from './filterByGenre';
 import themeChange from './theme';
+import { hideSpinner, showSpinner } from './spinner';
 
 const input = document.querySelector('.search-input');
 const galleryList = document.querySelector('.collection');
@@ -14,10 +15,12 @@ function searchFilm() {
     input.value = '';
     return;
   }
+  showSpinner();
   ApiServiceTMDB.searchQuery(input.value.trim());
   ApiServiceTMDB.page = 1;
   onLoadSearch(1);
   input.value = '';
+  hideSpinner();
   filterByGenre.deleteGenres();
 }
 

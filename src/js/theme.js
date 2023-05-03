@@ -21,7 +21,7 @@ function themeChange(theme) {
   if (theme === 'dark') {
     body.classList.add('dark_theme');
     card.classList.add('dark_modal');
-    footer.classList.add('dark_theme');
+    footer.style.backgroundColor = '#000000cf';
     footer.style.color = 'white';
     for (let index = 0; index < titles.length; index++) {
       const element = titles[index];
@@ -31,7 +31,7 @@ function themeChange(theme) {
   } else if (theme === 'light') {
     body.classList.remove('dark_theme');
     card.classList.remove('dark_modal');
-    footer.classList.remove('dark_theme');
+    footer.style.backgroundColor = '#fff';
     footer.style.color = '#545454';
     for (let index = 0; index < titles.length; index++) {
       const element = titles[index];

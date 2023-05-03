@@ -11,72 +11,71 @@ const filters = document.querySelector('.convenience-menu');
 const body = document.querySelector('body');
 const main = document.querySelector('.main');
 const mainLibrary = document.querySelector('.main-library');
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../../firebase.config";
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from '../../firebase.config';
 import { sendNotification } from './notification';
 import { hideSpinner, showSpinner } from './spinner';
 
 // Auth check on window load
 window.addEventListener('load', async () => {
-    await showSpinner();
-    onAuthStateChanged(auth, (user) => {
-        hideSpinner();
-        if (user !== null) {
-            // User is signed in
-            sessionStorage.setItem('uid', user.uid);
-            linkLibrary[0].parentNode.classList.remove('invisible');
-            linkLibrary[1].parentNode.classList.remove('invisible');
-            linkLogin.classList.add('invisible');
-            linkLogout[0].classList.remove('invisible');
-            linkLogout[1].classList.remove('invisible');
-        } else {
-            // User is signed out
-            linkLibrary[0].parentNode.classList.add('invisible');
-            linkLibrary[1].parentNode.classList.add('invisible');
-            linkLogin.classList.remove('invisible');
-            linkLogout[0].classList.add('invisible');
-            linkLogout[1].classList.add('invisible');
-        }
-    });
+  await showSpinner();
+  onAuthStateChanged(auth, user => {
+    hideSpinner();
+    if (user !== null) {
+      // User is signed in
+      sessionStorage.setItem('uid', user.uid);
+      linkLibrary[0].parentNode.classList.remove('invisible');
+      linkLibrary[1].parentNode.classList.remove('invisible');
+      linkLogin.classList.add('invisible');
+      linkLogout[0].classList.remove('invisible');
+      linkLogout[1].classList.remove('invisible');
+    } else {
+      // User is signed out
+      linkLibrary[0].parentNode.classList.add('invisible');
+      linkLibrary[1].parentNode.classList.add('invisible');
+      linkLogin.classList.remove('invisible');
+      linkLogout[0].classList.add('invisible');
+      linkLogout[1].classList.add('invisible');
+    }
+  });
 });
 
 function onRegister() {
-    register.classList.remove('invisible');
-    login.classList.add('invisible');
-    main.classList.add('invisible');
-    filters.classList.add('invisible');
+  register.classList.remove('invisible');
+  login.classList.add('invisible');
+  main.classList.add('invisible');
+  filters.classList.add('invisible');
 }
 function onLogin() {
-    login.classList.remove('invisible');
-    register.classList.add('invisible');
-    main.classList.add('invisible');
-    filters.classList.add('invisible');
+  login.classList.remove('invisible');
+  register.classList.add('invisible');
+  main.classList.add('invisible');
+  filters.classList.add('invisible');
 }
 function onLogout() {
-    signOut(auth)
-        .then(() => {
-            sessionStorage.removeItem('uid');
-            onLinkHome();
-            sendNotification('success', 'You have successfully logged out.');
-        });
+  signOut(auth).then(() => {
+    sessionStorage.removeItem('uid');
+    onLinkHome();
+    sendNotification('success', 'You have successfully logged out.');
+  });
 }
 function onLinkHome() {
-    headerLibrary.classList.add('invisible');
-    header.classList.remove('invisible');
-    mainLibrary.classList.add('invisible');
-    main.classList.remove('invisible');
-    register.classList.add('invisible');
-    login.classList.add('invisible');
-    filters.classList.remove('invisible');
+  headerLibrary.classList.add('invisible');
+  header.classList.remove('invisible');
+  mainLibrary.classList.add('invisible');
+  main.classList.remove('invisible');
+  register.classList.add('invisible');
+  login.classList.add('invisible');
+  filters.classList.remove('invisible');
 }
 function onLinkLibrary() {
-    headerLibrary.classList.remove('invisible');
-    header.classList.add('invisible');
-    mainLibrary.classList.remove('invisible');
-    main.classList.add('invisible');
-    register.classList.add('invisible');
-    login.classList.add('invisible');
-    filters.classList.add('invisible');
+  headerLibrary.classList.remove('invisible');
+  header.classList.add('invisible');
+  mainLibrary.classList.remove('invisible');
+  main.classList.add('invisible');
+  register.classList.add('invisible');
+  login.classList.add('invisible');
+  filters.classList.add('invisible');
 }
 
 // Header -> Home

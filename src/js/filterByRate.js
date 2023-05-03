@@ -3,6 +3,7 @@ import filmCard from './film-card';
 import loadTrend from '../views/loadFilms.hbs';
 import getTotalPages from './pagination';
 import onLoadTrend from './loadTrend';
+import { hideSpinner, showSpinner } from './spinner';
 
 const descendingSortButton = document.querySelector('.descending');
 const ascendingSortButton = document.querySelector('.ascending');
@@ -30,6 +31,7 @@ function closeSortList(e) {
 }
 
 function sortingDirection(e) {
+  showSpinner();
   if (e.target.classList.value === 'ascending') {
     console.log(e.target.classList);
     sortDir = 'asc';
@@ -69,6 +71,7 @@ function sortingDirection(e) {
 }
 
 function sortByTitle(e) {
+  showSpinner();
   sortInput.value = 'Title';
   ApiServiceTMDB.fetchDiscover(
     `original_title.${sortDir}`,
@@ -77,46 +80,55 @@ function sortByTitle(e) {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
     filmCard();
+    hideSpinner();
     getTotalPages(data.total_pages);
   });
 }
 
 function sortByVote(e) {
+  showSpinner();
   sortInput.value = 'Votes';
   ApiServiceTMDB.fetchDiscover(`vote_average.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
     filmCard();
+    hideSpinner();
     getTotalPages(data.total_pages);
   });
 }
 
 function sortByPopularity(e) {
+  showSpinner();
   sortInput.value = 'Popularity';
   ApiServiceTMDB.fetchDiscover(`popularity.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
     filmCard();
+    hideSpinner();
     getTotalPages(data.total_pages);
   });
 }
 
 function sortVotesCount(e) {
+  showSpinner();
   sortInput.value = 'Votes-count';
   ApiServiceTMDB.fetchDiscover(`vote_count.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
     filmCard();
+    hideSpinner();
     getTotalPages(data.total_pages);
   });
 }
 
 function sortRelease(e) {
+  showSpinner();
   sortInput.value = 'Release-data';
   ApiServiceTMDB.fetchDiscover(`release_date.${sortDir}`).then(data => {
     galleryList.innerHTML = '';
     galleryList.insertAdjacentHTML('beforeend', loadTrend(data));
     filmCard();
+    hideSpinner();
     getTotalPages(data.total_pages);
   });
 }
