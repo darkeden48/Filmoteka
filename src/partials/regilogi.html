@@ -1,0 +1,321 @@
+<!-- <a href="https://front.codes/" class="logo" target="_blank">
+  <img src="https://assets.codepen.io/1462889/fcy.png" alt="" />
+</a> -->
+
+<!-- <div id="section-modalus" class="section">
+  <div class="container-modalus">
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+          <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+          <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+          <label for="reg-log"></label>
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
+              <div class="card-front">
+                <div class="center-wrap">
+                  <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Log In</h4>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        name="logemail"
+                        class="form-style"
+                        placeholder="Your Email"
+                        id="logemail"
+                        autocomplete="off"
+                      />
+                      <i class="input-icon uil uil-at"></i>
+                    </div>
+                    <div class="form-group mt-2">
+                      <input
+                        type="password"
+                        name="logpass"
+                        class="form-style"
+                        placeholder="Your Password"
+                        id="logpass"
+                        autocomplete="off"
+                      />
+                      <i class="input-icon uil uil-lock-alt"></i>
+                    </div>
+                    <a href="#" class="btn mt-4">submit</a>
+                    <p class="mb-0 mt-4 text-center">
+                      <a href="#0" class="link">Forgot your password?</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-back">
+                <div class="center-wrap">
+                  <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Sign Up</h4>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        name="logname"
+                        class="form-style"
+                        placeholder="Your Full Name"
+                        id="logname"
+                        autocomplete="off"
+                      />
+                      <i class="input-icon uil uil-user"></i>
+                    </div>
+                    <div class="form-group mt-2">
+                      <input
+                        type="email"
+                        name="logemail"
+                        class="form-style"
+                        placeholder="Your Email"
+                        id="logemail"
+                        autocomplete="off"
+                      />
+                      <i class="input-icon uil uil-at"></i>
+                    </div>
+                    <div class="form-group mt-2">
+                      <input
+                        type="password"
+                        name="logpass"
+                        class="form-style"
+                        placeholder="Your Password"
+                        id="logpass"
+                        autocomplete="off"
+                      />
+                      <i class="input-icon uil uil-lock-alt"></i>
+                    </div>
+                    <a href="#" class="btn mt-4">submit</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- //////////////////////////////////////////////////// -->
+<div id="section-modalus" class="section">
+  <div class="container-modalus">
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+          <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+          <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+          <label for="reg-log"></label>
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
+              <div class="card-front">
+                <div class="center-wrap">
+                  <div class="login">
+                    <div class="tab-content">
+                      <h4 class="text-center mb-3 mt-3">Log in with:</h4>
+                      <form action="/" id="loginForm">
+                        <div
+                          class="text-center mb-4 d-flex justify-content-center"
+                        >
+                          <button
+                            type="button"
+                            class="btn btn-link btn-floating mx-1"
+                          >
+                            <img
+                              id="googleLogin"
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEkUlEQVR4nO2Zb0wbZRzHn3taesUtRpOJYbo/DoQM5c/GMgryzxkYxbGBiQsbNBCEFGaIY8zCCuaUMSiQAQMGQWAgcSY2GeuNuzpc8NqNvRoCItE3841Dthj3ToNzbX+mVRBI197Zo2VJv8n3XZ+nn89dn6dPrwj5448/HgcoJIWqgGIoxywU4HuQTfwJSsIKBxBAKgJIQzbIJhZBhX+BE/g6VAUU2ccgXwc0UgWU4tvwNmGBJASCqiQsoMa3QRsQ433wOlk4qPEsvCkQ2llTEUAxnoEaFOIdeA3RCumEzWPwtT2IrHCK0K0f+HkUCMX4B9HBk9b0PTwNFJKJC9+NngcVfrDu8En/toJoFw9+EMnhOPGr1+DLCE40eIeAGn/vPXgsMvyHRIfgrbEMT0IlroUmaQpQaAtQKAjOSN6C05hy7Db21zgbW4pN4sI3kyGQQVh5g5+W9PJZfEChZ+ADydAqkVKR4R1vVIHv8IIvwPNwDr0oeP4aFAJ5+P76wJvl22CcfAQaCUCyC/gSPAV6JEEbLWAmdWAmwdHeAIB0wvmV35DweiQBs2x+WcDeURmACv8Hn0lYoAK9hDZiwCSPXwW/VI4E0En/ObuclPSjjRowybROBZY6FPAAyhGJNmrATF5xKWCSdQiZL1gzC2I0XDthO9rUd9e9gImccynAkRm+EAjWzMIbddcW+Qg8dCMQ6iuB3TW3rHwEHrkWQJt9JbCjehKeaoHtVd+C5x+hm7IwXwns1t60Pd2L+JNRHovYTI642UY7fSVwRDc8z0NAduZJ8A+5Z6Geif/jvF4RiEROy3D+puiPvrG4Eii/0DjqXoALVDiDnx0PBhWthENXs6HDGHtJbIGTnfX97u6Arq/iuHsBQBjMsntL4DYzCfRYOGQbDjvg7c2jlZaL11/bJhZ8W496Z2SNyeoK/vVas4XiKH5P88BENtrhfzdthrNMwjL4ylaPJi9wXIrHjwcpjpIeafxswd3VL2lrm+A9KXCBL98df+GvEjrdKfxSP2YTZjyRoDhKmt/SM+d2/6+egsbuylhBkzcwihlX8CvvRP/X4VuFwvfeiNhe1lX3E5/d51hz75zQ+RE9FvZKPq208pHIp5WWzq/2DlCDKXJ38w6PRW1qZ/b15RmU1pyRHDja2uH2FEp9ekrQl+dyutmY1iweAitFGljFdJdxL6VnIw5cGdsVdJkL2zJgjEq8aNxTV8ckTNpfs3JM1kgOFPZQsLXqO6cC77c3dSNPomPjpvkKeNKiwXLYWX1nFfy7TQM/Ik+j10fINHTqfW9IFH5RCJG1Jgd8ev2Xv53o6hJ0cHxiOG7HczVM4oI3JI7pc0HVemGeGq4MEgV+hYT8LBM/K2RN/J+eYxXTRmPo+v3m7jNGNecaMq2iX3lDprWXjWlG3sgwvSe0gY2beseQ5TF4ztXDjqt++caru5C3MzQWGdvM7L9VZDj4WCh4AZ3xuJGJm/icifb+n3xrowck6WeiC1uN+0a1TOLPajptUWVQWu13yH4IzDVk2tSGtMWqa8nzLex+ts8YU2Afg/zxxx/kaf4GzSVnCicBYF0AAAAASUVORK5CYII="
+                            />
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-link btn-floating mx-1"
+                          >
+                            <img
+                              id="githubLogin"
+                              src="data:image/png;base64,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"
+                            />
+                          </button>
+                        </div>
+
+                        <p class="text-center">or:</p>
+
+                        <div id="loginError" class="alert alert-danger">
+                          <p class="text-center">&nbsp;</p>
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4 form-group">
+                          <input
+                            type="email"
+                            id="loginEmail"
+                            class="form-control form-style"
+                            placeholder="Your Email"
+                            autocomplete="off"
+                            required
+                          />
+                          <label class="form-label" for="loginEmail"
+                            ></label
+                          >
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4 form-group">
+                          <input
+                            type="password"
+                            id="loginPassword"
+                            class="form-control form-style"
+                            placeholder="Your Password"
+                            autocomplete="off"
+                            required
+                          />
+                          <label class="form-label" for="loginPassword"
+                            ></label
+                          >
+                        </div>
+
+                        <!-- 2 column grid layout -->
+                        <div class="row mb-4">
+                          <div class="col-md-6 d-flex justify-content-center">
+                            <!-- Checkbox -->
+                            <div class="form-check mb-3 mb-md-0 form-group">
+                              <input
+                                class="form-check-input form-style"
+                                type="checkbox"
+                                value=""
+                                id="loginCheck"
+                                checked
+                              />
+                              <label class="form-check-label" for="loginCheck">
+                                Remember me
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6 d-flex justify-content-center">
+                            <!-- Simple link -->
+                            <a href="#">Forgot password?</a>
+                          </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button
+                          type="submit"
+                          class="btn btn-outline-warning btn-block mb-4"
+                        >
+                          Sign in
+                        </button>
+
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                          <p>Not a member? <a id="register">Register</a></p>
+                        </div>
+                      </form>
+                      <div
+                        class="tab-pane fade"
+                        id="pills-login"
+                        role="tabpanel"
+                        aria-labelledby="tab-login"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                  <!-- ///////////////////// -->
+                  <div class="card-back">
+                    <div class="center-wrap">
+                      <div class="register">
+                        <div class="tab-content">
+                          <div
+                            class="tab-pane fade show active form-style"
+                            id="pills-register"
+                            role="tabpanel"
+                            aria-labelledby="tab-register"
+                          >
+                            <h3 class="text-center mb-4 mt-3">
+                              Registration Form
+                            </h3>
+                            <div id="registerError" class="alert alert-danger">
+                              <p class="text-center">&nbsp;</p>
+                            </div>
+                            <form id="registerForm">
+                              <!-- Username input -->
+                              <div class="form-outline mb-4 form-group">
+                                <input
+                                  type="text"
+                                  id="registerUsername"
+                                  class="form-control form-style"
+                                  placeholder="Your Username"
+                                  autocomplete="off"
+                                  required
+                                />
+                                <label class="form-label" for="registerUsername"
+                                  ></label
+                                >
+                              </div>
+
+                              <!-- Email input -->
+                              <div class="form-outline mb-4 form-group">
+                                <input
+                                  type="email"
+                                  id="registerEmail"
+                                  class="form-control form-style"
+                                  placeholder="Your Email"
+                                  autocomplete="off"
+                                  required
+                                />
+                                <label class="form-label" for="registerEmail"
+                                  ></label
+                                >
+                              </div>
+
+                              <!-- Password input -->
+                              <div class="form-outline mb-4 form-group">
+                                <input
+                                  type="password"
+                                  id="registerPassword"
+                                  class="form-control form-style"
+                                  placeholder="Your Password"
+                                  autocomplete="off"
+                                  required
+                                />
+                                <label class="form-label" for="registerPassword"
+                                  ></label
+                                >
+                              </div>
+
+                              <!-- Repeat Password input -->
+                              <div class="form-outline mb-4 form-group">
+                                <input
+                                  type="password"
+                                  id="registerRepeatPassword"
+                                  class="form-control form-style"
+                                  placeholder="Repeat password"
+                                  autocomplete="off"
+                                  required
+                                />
+                                <label
+                                  class="form-label"
+                                  for="registerRepeatPassword"
+                                  ></label
+                                >
+                              </div>
+
+                              <!-- Submit button -->
+                              <button
+                                type="submit"
+                                class="btn btn-primary btn-block mb-3"
+                              >
+                                Register
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

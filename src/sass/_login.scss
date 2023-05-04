@@ -1,27 +1,27 @@
-.login {
-	width: 65%;
-	margin: 30px auto;
-	padding: 0 75px;
-	height: fit-content;
+// .login {
+// 	width: 65%;
+// 	margin: 30px auto;
+// 	padding: 0 75px;
+// 	height: fit-content;
 
-	@include tablet {
-		width: 95%;
-	}
+// 	@include tablet {
+// 		width: 95%;
+// 	}
 
-	.tab-content {
-		width: 45%;
-		margin: 0 auto;
+// 	.tab-content {
+// 		width: 45%;
+// 		margin: 0 auto;
 
-		@include rwd(1450) {
-			width: 100%;
-		}
-	}
+// 		@include rwd(1450) {
+// 			width: 100%;
+// 		}
+// 	}
 
 	form {
 		.btn-link {
 			img {
-				width: 45px;
-				height: 45px;
+				width: 35px;
+				height: 35px;
 				filter: grayscale(1);
 				transition: ease all .4s;
 
@@ -60,4 +60,4 @@
 		}
 	}
 
-}
+// }

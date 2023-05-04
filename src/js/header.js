@@ -7,6 +7,7 @@ const linkLogout = document.querySelectorAll('.logout');
 const login = document.querySelector('.login');
 const linkRegister = document.querySelector('#register');
 const register = document.querySelector('.register');
+const regilogi = document.querySelector('#section-modalus');
 const filters = document.querySelector('.convenience-menu');
 const body = document.querySelector('body');
 const main = document.querySelector('.main');
@@ -41,14 +42,16 @@ window.addEventListener('load', async () => {
 });
 
 function onRegister() {
-  register.classList.remove('invisible');
+  // register.classList.remove('invisible');
+  // regilogi.classList.remove('invisible');
   login.classList.add('invisible');
   main.classList.add('invisible');
   filters.classList.add('invisible');
 }
 function onLogin() {
-  login.classList.remove('invisible');
-  register.classList.add('invisible');
+  // register.classList.add('invisible');
+  // login.classList.remove('invisible');
+  regilogi.classList.remove('invisible');
   main.classList.add('invisible');
   filters.classList.add('invisible');
 }
@@ -66,6 +69,7 @@ function onLinkHome() {
   main.classList.remove('invisible');
   register.classList.add('invisible');
   login.classList.add('invisible');
+  regilogi.classList.add('invisible');
   filters.classList.remove('invisible');
 }
 function onLinkLibrary() {
@@ -75,6 +79,7 @@ function onLinkLibrary() {
   main.classList.add('invisible');
   register.classList.add('invisible');
   login.classList.add('invisible');
+  regilogi.classList.add('invisible');
   filters.classList.add('invisible');
 }
 
