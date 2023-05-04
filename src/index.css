@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
 .container {
   margin: 0 75px;
@@ -661,51 +662,6 @@
   color: #f6f6f6;
 }
 
-form .btn-link img {
-  width: 35px;
-  height: 35px;
-  filter: grayscale(1);
-  transition: ease all 0.4s;
-}
-form .btn-link img:hover {
-  filter: grayscale(0);
-  transform: scale(1.02);
-}
-form svg {
-  width: 100%;
-}
-form #register {
-  color: #007bff;
-  text-decoration: none;
-  cursor: pointer;
-}
-form #register:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-#loginError {
-  width: 100%;
-  display: none;
-  height: fit-content;
-  margin: 15px auto;
-}
-#loginError p {
-  color: #fff;
-  font-weight: 600;
-}
-
-#registerError {
-  width: 100%;
-  display: none;
-  height: fit-content;
-  margin: 15px auto;
-}
-#registerError p {
-  color: #fff;
-  font-weight: 600;
-}
-
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
@@ -741,6 +697,10 @@ p {
 
 h4 {
   font-weight: 600;
+}
+
+.mb-0, .mb-3, .pp {
+  color: white;
 }
 
 h6 span {
@@ -786,10 +746,10 @@ h6 span {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  color: #ffeba7;
-  background-color: #102770;
+  color: #0915fc;
+  background-color: #ff9009;
   font-family: "unicons";
-  content: "\eb4f";
+  content: "⇱";
   z-index: 20;
   top: -10px;
   left: -10px;
@@ -900,6 +860,7 @@ h6 span {
   top: 0;
   left: 18px;
   height: 48px;
+  content: "\f32c";
   font-size: 24px;
   line-height: 48px;
   text-align: left;
@@ -1015,6 +976,51 @@ h6 span {
   height: 26px;
   width: auto;
   display: block;
+}
+
+#registerError {
+  width: 100%;
+  display: none;
+  height: fit-content;
+  margin: 15px auto;
+}
+#registerError p {
+  color: #fff;
+  font-weight: 600;
+}
+
+form .btn-link img {
+  width: 35px;
+  height: 35px;
+  filter: grayscale(1);
+  transition: ease all 0.4s;
+}
+form .btn-link img:hover {
+  filter: grayscale(0);
+  transform: scale(1.02);
+}
+form svg {
+  width: 100%;
+}
+form #register {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+form #register:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+#loginError {
+  width: 100%;
+  display: none;
+  height: fit-content;
+  margin: 15px auto;
+}
+#loginError p {
+  color: #fff;
+  font-weight: 600;
 }
 
 body {

@@ -30,6 +30,9 @@ p {
 h4 {
   font-weight: 600;
 }
+.mb-0, .mb-3, .pp{
+    color:white;
+}
 h6 span{
   padding: 0 20px;
   text-transform: uppercase;
@@ -68,10 +71,11 @@ h6 span{
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  color: #ffeba7;
-  background-color: #102770;
+  color: #0915fc;
+  background-color: #ff9009;
   font-family: 'unicons';
-  content: '\eb4f';
+  content:'\21F1';
+//   content:'\F13C';
   z-index: 20;
   top: -10px;
   left: -10px;
@@ -177,6 +181,7 @@ h6 span{
   top: 0;
   left: 18px;
   height: 48px;
+  content:'\F32C';
   font-size: 24px;
   line-height: 48px;
   text-align: left;
@@ -285,4 +290,57 @@ h6 span{
 	height: 26px;
 	width: auto;
 	display: block;
+}
+#registerError {
+    width: 100%;
+    display: none;
+    height: fit-content;
+    margin: 15px auto;
+
+    p {
+        color: #fff;
+        font-weight: 600;
+    }
+}
+form {
+    .btn-link {
+        img {
+            width: 35px;
+            height: 35px;
+            filter: grayscale(1);
+            transition: ease all .4s;
+
+            &:hover {
+                filter: grayscale(0);
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    svg {
+        width: 100%;
+    }
+
+    #register {
+        color: #007bff;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    }
+}
+
+#loginError {
+    width: 100%;
+    display: none;
+    height: fit-content;
+    margin: 15px auto;
+
+    p {
+        color: #fff;
+        font-weight: 600;
+    }
 }
